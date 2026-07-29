@@ -32,12 +32,16 @@
             this.pnlSaudacao = new System.Windows.Forms.Panel();
             this.tmrSaudacao = new System.Windows.Forms.Timer(this.components);
             this.lblSaudacao = new System.Windows.Forms.Label();
+            this.tmrBotoes = new System.Windows.Forms.Timer(this.components);
+            this.btnImovel = new System.Windows.Forms.Button();
+            this.btnAutomovel = new System.Windows.Forms.Button();
+            this.btnCapital = new System.Windows.Forms.Button();
             this.pnlSaudacao.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSaudacao
             // 
-            this.pnlSaudacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(33)))), ((int)(((byte)(31)))));
+            this.pnlSaudacao.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnlSaudacao.Controls.Add(this.lblSaudacao);
             this.pnlSaudacao.Location = new System.Drawing.Point(0, -3);
             this.pnlSaudacao.Name = "pnlSaudacao";
@@ -61,12 +65,53 @@
             this.lblSaudacao.TabIndex = 0;
             this.lblSaudacao.Text = "label1";
             // 
+            // tmrBotoes
+            // 
+            this.tmrBotoes.Interval = 500;
+            this.tmrBotoes.Tick += new System.EventHandler(this.tmrBotoes_Tick);
+            // 
+            // btnImovel
+            // 
+            this.btnImovel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnImovel.Location = new System.Drawing.Point(114, 116);
+            this.btnImovel.Name = "btnImovel";
+            this.btnImovel.Size = new System.Drawing.Size(114, 61);
+            this.btnImovel.TabIndex = 1;
+            this.btnImovel.Text = "IMOVEL";
+            this.btnImovel.UseVisualStyleBackColor = true;
+            this.btnImovel.Visible = false;
+            // 
+            // btnAutomovel
+            // 
+            this.btnAutomovel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAutomovel.Location = new System.Drawing.Point(265, 116);
+            this.btnAutomovel.Name = "btnAutomovel";
+            this.btnAutomovel.Size = new System.Drawing.Size(114, 61);
+            this.btnAutomovel.TabIndex = 2;
+            this.btnAutomovel.Text = "AUTOMOVEL";
+            this.btnAutomovel.UseVisualStyleBackColor = true;
+            this.btnAutomovel.Visible = false;
+            // 
+            // btnCapital
+            // 
+            this.btnCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCapital.Location = new System.Drawing.Point(408, 116);
+            this.btnCapital.Name = "btnCapital";
+            this.btnCapital.Size = new System.Drawing.Size(114, 61);
+            this.btnCapital.TabIndex = 3;
+            this.btnCapital.Text = "CAPITAL DE GIRO";
+            this.btnCapital.UseVisualStyleBackColor = true;
+            this.btnCapital.Visible = false;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(38)))), ((int)(((byte)(26)))));
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(904, 661);
+            this.Controls.Add(this.btnCapital);
+            this.Controls.Add(this.btnAutomovel);
+            this.Controls.Add(this.btnImovel);
             this.Controls.Add(this.pnlSaudacao);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -85,6 +130,10 @@
         private System.Windows.Forms.Panel pnlSaudacao;
         private System.Windows.Forms.Timer tmrSaudacao;
         private System.Windows.Forms.Label lblSaudacao;
+        private System.Windows.Forms.Timer tmrBotoes;
+        private System.Windows.Forms.Button btnImovel;
+        private System.Windows.Forms.Button btnAutomovel;
+        private System.Windows.Forms.Button btnCapital;
     }
 }
 

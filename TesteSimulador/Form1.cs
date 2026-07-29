@@ -19,6 +19,9 @@ namespace TesteSimulador
 
         string textoSaudacao = "Seja Bem Vindo, Admin Como vamos te ajudar hoje?";
         int indice = 0;
+        int etapa = 0;
+        bool confirma = false;
+
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             lblSaudacao.Text = "";
@@ -36,8 +39,35 @@ namespace TesteSimulador
             else
             {
                 tmrSaudacao.Stop();
+
+                btnImovel.Visible = false;
+                btnAutomovel.Visible = false;
+                btnCapital.Visible = false;
+
+                tmrBotoes.Start();
             }
         }
 
+
+        private void tmrBotoes_Tick(object sender, EventArgs e)
+        {
+            switch (etapa)
+            {
+                case 0:
+                    btnImovel.Visible = true;
+                    break;
+
+                case 1:
+                    btnAutomovel.Visible = true;
+                    break;
+
+                case 2:
+                    btnCapital.Visible = true;
+                    tmrBotoes.Stop();
+                    break;
+            }
+
+            etapa++;
+        }
     }
 }
