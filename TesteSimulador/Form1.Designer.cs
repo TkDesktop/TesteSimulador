@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.pnlSaudacao = new System.Windows.Forms.Panel();
-            this.tmrSaudacao = new System.Windows.Forms.Timer(this.components);
             this.lblSaudacao = new System.Windows.Forms.Label();
+            this.tmrSaudacao = new System.Windows.Forms.Timer(this.components);
             this.tmrBotoes = new System.Windows.Forms.Timer(this.components);
             this.btnImovel = new System.Windows.Forms.Button();
             this.btnAutomovel = new System.Windows.Forms.Button();
@@ -48,11 +49,6 @@
             this.pnlSaudacao.Size = new System.Drawing.Size(905, 60);
             this.pnlSaudacao.TabIndex = 0;
             // 
-            // tmrSaudacao
-            // 
-            this.tmrSaudacao.Interval = 120;
-            this.tmrSaudacao.Tick += new System.EventHandler(this.tmrSaudacao_Tick);
-            // 
             // lblSaudacao
             // 
             this.lblSaudacao.AutoSize = true;
@@ -65,6 +61,11 @@
             this.lblSaudacao.TabIndex = 0;
             this.lblSaudacao.Text = "label1";
             // 
+            // tmrSaudacao
+            // 
+            this.tmrSaudacao.Interval = 120;
+            this.tmrSaudacao.Tick += new System.EventHandler(this.tmrSaudacao_Tick);
+            // 
             // tmrBotoes
             // 
             this.tmrBotoes.Interval = 500;
@@ -73,7 +74,7 @@
             // btnImovel
             // 
             this.btnImovel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnImovel.Location = new System.Drawing.Point(114, 116);
+            this.btnImovel.Location = new System.Drawing.Point(12, 77);
             this.btnImovel.Name = "btnImovel";
             this.btnImovel.Size = new System.Drawing.Size(114, 61);
             this.btnImovel.TabIndex = 1;
@@ -84,7 +85,7 @@
             // btnAutomovel
             // 
             this.btnAutomovel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAutomovel.Location = new System.Drawing.Point(265, 116);
+            this.btnAutomovel.Location = new System.Drawing.Point(12, 159);
             this.btnAutomovel.Name = "btnAutomovel";
             this.btnAutomovel.Size = new System.Drawing.Size(114, 61);
             this.btnAutomovel.TabIndex = 2;
@@ -95,7 +96,7 @@
             // btnCapital
             // 
             this.btnCapital.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCapital.Location = new System.Drawing.Point(408, 116);
+            this.btnCapital.Location = new System.Drawing.Point(12, 239);
             this.btnCapital.Name = "btnCapital";
             this.btnCapital.Size = new System.Drawing.Size(114, 61);
             this.btnCapital.TabIndex = 3;
@@ -108,11 +109,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackgroundImage = global::TesteSimulador.Properties.Resources.ChatGPT_Image_30_de_jun__de_2026__19_44_45;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(904, 661);
             this.Controls.Add(this.btnCapital);
             this.Controls.Add(this.btnAutomovel);
             this.Controls.Add(this.btnImovel);
             this.Controls.Add(this.pnlSaudacao);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPrincipal";

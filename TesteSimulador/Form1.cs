@@ -17,15 +17,16 @@ namespace TesteSimulador
             InitializeComponent();
         }
 
-        string textoSaudacao = "Seja Bem Vindo, Admin Como vamos te ajudar hoje?";
         int indice = 0;
         int etapa = 0;
-        bool confirma = false;
+        string saudacao = "";
+        string textoSaudacao = "";
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             lblSaudacao.Text = "";
-
+            saudacao = ObterSaudacaoPorHorario();
+            textoSaudacao = $"{saudacao}, Vamos planejar a conquista do seu cliente?";
             tmrSaudacao.Start();
         }
 
@@ -68,6 +69,24 @@ namespace TesteSimulador
             }
 
             etapa++;
+        }
+
+        private string ObterSaudacaoPorHorario()
+        {
+            int horaAtual = DateTime.Now.Hour;
+
+            if (horaAtual >= 5 && horaAtual < 12)
+            {
+                return "Bom dia";
+            }
+            else if (horaAtual >= 12 && horaAtual < 18)
+            {
+                return "Boa tarde";
+            }
+            else
+            {
+                return "Boa noite";
+            }
         }
     }
 }
