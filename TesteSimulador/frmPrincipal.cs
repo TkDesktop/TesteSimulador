@@ -21,7 +21,7 @@ namespace TesteSimulador
         int etapa = 0;
         string saudacao = "";
         string textoSaudacao = "";
-
+        
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             lblSaudacao.Text = "";
@@ -103,29 +103,56 @@ namespace TesteSimulador
 
         private void AbrirForm(Form form)
         {
-            // 1. Procura se já existe uma janela com o mesmo nome aberta no Windows
+            if (!VerificarAutenticacao())
+            {
+                form.Dispose();
+                return;
+            }
+
+            // === ETAPA 2: VERIFICA SE A JANELA JÁ ESTÁ ABERTA ===
             foreach (Form formAberto in Application.OpenForms)
             {
                 if (formAberto.GetType() == form.GetType())
                 {
-                    // Se já estiver aberta, traz para a frente, restaura se estiver minimizada e foca nela
+                    form.Dispose();
+
                     if (formAberto.WindowState == FormWindowState.Minimized)
                         formAberto.WindowState = FormWindowState.Normal;
 
                     formAberto.BringToFront();
                     formAberto.Focus();
-                    return; // Sai sem criar uma nova
+                    return;
                 }
             }
 
-            // 2. Se não estiver aberta, ajusta para ser uma janela nativa perfeita do Windows
-            form.TopLevel = true;                          // Janela independente do sistema
-            form.StartPosition = FormStartPosition.CenterScreen; // Surge no meio da tela
-
-            // 3. Exibe a nova janela solta
+            // === ETAPA 3: EXIBE A NOVA JANELA ===
+            form.TopLevel = true;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Show();
         }
 
+        private bool VerificarAutenticacao()
+        {
+            // Se já estiver logado, não precisa abrir a tela de login de novo!
+            if (Usuario.logado)
+            {
+                return true;
+            }
+
+            // Se não estiver logado, abre a tela de login
+            using (frmLogin telaLogin = new frmLogin())
+            {
+                if (telaLogin.ShowDialog() == DialogResult.OK)
+                {
+                    // Marca na sessão que agora ele está logado
+                    Usuario.logado = true;
+                    return true;
+                }
+            }
+
+            // Usuário cancelou ou fechou a tela de login
+            return false;
+        }
 
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {

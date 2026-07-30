@@ -43,6 +43,7 @@
       <HintPath>..\packages\ReaLTaiizor.3.7.8\lib\net472\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -107,11 +108,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario.cs" />
+    <EmbeddedResource Include="frmAgro.resx">
+      <DependentUpon>frmAgro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAutomovel.resx">
+      <DependentUpon>frmAutomovel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCapitaldeGiro.resx">
+      <DependentUpon>frmCapitaldeGiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonalizado.resx">
+      <DependentUpon>frmPersonalizado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmImovel.resx">
       <DependentUpon>frmImovel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServico.resx">
+      <DependentUpon>frmServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

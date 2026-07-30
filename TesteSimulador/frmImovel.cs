@@ -16,5 +16,12 @@ namespace TesteSimulador
         {
             InitializeComponent();
         }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
     }
 }
