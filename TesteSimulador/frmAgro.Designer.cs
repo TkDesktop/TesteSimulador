@@ -28,15 +28,343 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.tmrFinal = new System.Windows.Forms.Timer(this.components);
+            this.txtNomeCliente = new ReaLTaiizor.Controls.MoonTextBox();
+            this.lblNomeCliente = new ReaLTaiizor.Controls.LabelEdit();
+            this.cboAdministradora = new ReaLTaiizor.Controls.SkyComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblFinal = new ReaLTaiizor.Controls.LabelEdit();
+            this.pbrFinal = new ReaLTaiizor.Controls.AloneProgressBar();
+            this.lblEscolha = new ReaLTaiizor.Controls.LabelEdit();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.txtLance = new ReaLTaiizor.Controls.MoonTextBox();
+            this.txtReserva = new ReaLTaiizor.Controls.MoonTextBox();
+            this.txtAdesao = new ReaLTaiizor.Controls.MoonTextBox();
+            this.txtAdministrativa = new ReaLTaiizor.Controls.MoonTextBox();
+            this.txtPrazo = new ReaLTaiizor.Controls.MoonTextBox();
+            this.txtValorBem = new ReaLTaiizor.Controls.MoonTextBox();
+            this.lblFundoReserva = new ReaLTaiizor.Controls.LabelEdit();
+            this.rdbLanceLivre = new ReaLTaiizor.Controls.ForeverRadioButton();
+            this.rdbLanceEmbutido = new ReaLTaiizor.Controls.ForeverRadioButton();
+            this.lblPrazo = new ReaLTaiizor.Controls.LabelEdit();
+            this.lblTaxaAdmin = new ReaLTaiizor.Controls.LabelEdit();
+            this.lblAdesao = new ReaLTaiizor.Controls.LabelEdit();
+            this.lblLance = new ReaLTaiizor.Controls.LabelEdit();
+            this.lblValorBem = new ReaLTaiizor.Controls.LabelEdit();
             this.btnSair = new ReaLTaiizor.Controls.HopeRoundButton();
             this.btnLimpar = new ReaLTaiizor.Controls.HopeRoundButton();
-            this.btnPDF = new ReaLTaiizor.Controls.HopeRoundButton();
             this.btnCalcular = new ReaLTaiizor.Controls.HopeRoundButton();
-            this.foreverComboBox1 = new ReaLTaiizor.Controls.ForeverComboBox();
-            this.aloneComboBox1 = new ReaLTaiizor.Controls.AloneComboBox();
-            this.comboBoxEdit1 = new ReaLTaiizor.Controls.ComboBoxEdit();
-            this.hopeRoundButton1 = new ReaLTaiizor.Controls.HopeRoundButton();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tmrFinal
+            // 
+            this.tmrFinal.Interval = 450;
+            this.tmrFinal.Tick += new System.EventHandler(this.tmrFinal_Tick);
+            // 
+            // txtNomeCliente
+            // 
+            this.txtNomeCliente.BackColor = System.Drawing.Color.White;
+            this.txtNomeCliente.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.txtNomeCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNomeCliente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeCliente.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtNomeCliente.Location = new System.Drawing.Point(16, 105);
+            this.txtNomeCliente.Name = "txtNomeCliente";
+            this.txtNomeCliente.Size = new System.Drawing.Size(167, 22);
+            this.txtNomeCliente.TabIndex = 79;
+            this.txtNomeCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblNomeCliente
+            // 
+            this.lblNomeCliente.AutoSize = true;
+            this.lblNomeCliente.BackColor = System.Drawing.Color.Transparent;
+            this.lblNomeCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblNomeCliente.Location = new System.Drawing.Point(12, 70);
+            this.lblNomeCliente.Name = "lblNomeCliente";
+            this.lblNomeCliente.Size = new System.Drawing.Size(110, 21);
+            this.lblNomeCliente.TabIndex = 101;
+            this.lblNomeCliente.Text = "Nome Cliente";
+            // 
+            // cboAdministradora
+            // 
+            this.cboAdministradora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.cboAdministradora.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboAdministradora.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboAdministradora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAdministradora.Font = new System.Drawing.Font("Verdana", 6.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboAdministradora.ForeColor = System.Drawing.Color.Black;
+            this.cboAdministradora.FormattingEnabled = true;
+            this.cboAdministradora.ItemHeight = 16;
+            this.cboAdministradora.ItemHighlightColor = System.Drawing.Color.Transparent;
+            this.cboAdministradora.Items.AddRange(new object[] {
+            "SAFRA",
+            "MAGALU",
+            "HS",
+            "EMBRACON",
+            "ADEMICON",
+            "AUDI",
+            "BMW",
+            "CANOPUS",
+            "DODGE"});
+            this.cboAdministradora.Location = new System.Drawing.Point(519, 175);
+            this.cboAdministradora.Name = "cboAdministradora";
+            this.cboAdministradora.Size = new System.Drawing.Size(189, 22);
+            this.cboAdministradora.StartIndex = 0;
+            this.cboAdministradora.TabIndex = 88;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblFinal);
+            this.panel1.Controls.Add(this.pbrFinal);
+            this.panel1.Location = new System.Drawing.Point(397, 220);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(391, 180);
+            this.panel1.TabIndex = 100;
+            // 
+            // lblFinal
+            // 
+            this.lblFinal.AutoSize = true;
+            this.lblFinal.BackColor = System.Drawing.Color.Transparent;
+            this.lblFinal.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFinal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblFinal.Location = new System.Drawing.Point(135, 75);
+            this.lblFinal.Name = "lblFinal";
+            this.lblFinal.Size = new System.Drawing.Size(54, 15);
+            this.lblFinal.TabIndex = 79;
+            this.lblFinal.Text = "Aguarde";
+            this.lblFinal.Visible = false;
+            // 
+            // pbrFinal
+            // 
+            this.pbrFinal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.pbrFinal.BackgroundColor = System.Drawing.Color.Transparent;
+            this.pbrFinal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.pbrFinal.Location = new System.Drawing.Point(13, 93);
+            this.pbrFinal.Maximum = 100;
+            this.pbrFinal.Minimum = 0;
+            this.pbrFinal.Name = "pbrFinal";
+            this.pbrFinal.Size = new System.Drawing.Size(355, 12);
+            this.pbrFinal.Stripes = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.pbrFinal.TabIndex = 78;
+            this.pbrFinal.Text = "aloneProgressBar1";
+            this.pbrFinal.Value = 50;
+            this.pbrFinal.Visible = false;
+            // 
+            // lblEscolha
+            // 
+            this.lblEscolha.AutoSize = true;
+            this.lblEscolha.BackColor = System.Drawing.Color.Transparent;
+            this.lblEscolha.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEscolha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblEscolha.Location = new System.Drawing.Point(515, 151);
+            this.lblEscolha.Name = "lblEscolha";
+            this.lblEscolha.Size = new System.Drawing.Size(193, 21);
+            this.lblEscolha.TabIndex = 99;
+            this.lblEscolha.Text = "Escolha a Administradora";
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.iconPictureBox1.BackgroundImage = global::TesteSimulador.Properties.Resources.ChatGPT_Image_30_de_jun__de_2026__19_44_45;
+            this.iconPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 122;
+            this.iconPictureBox1.Location = new System.Drawing.Point(535, 12);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(152, 122);
+            this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconPictureBox1.TabIndex = 98;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // txtLance
+            // 
+            this.txtLance.BackColor = System.Drawing.Color.White;
+            this.txtLance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.txtLance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLance.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtLance.Location = new System.Drawing.Point(204, 246);
+            this.txtLance.Name = "txtLance";
+            this.txtLance.Size = new System.Drawing.Size(167, 22);
+            this.txtLance.TabIndex = 87;
+            this.txtLance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtReserva
+            // 
+            this.txtReserva.BackColor = System.Drawing.Color.White;
+            this.txtReserva.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.txtReserva.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReserva.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReserva.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtReserva.Location = new System.Drawing.Point(16, 318);
+            this.txtReserva.Name = "txtReserva";
+            this.txtReserva.Size = new System.Drawing.Size(167, 22);
+            this.txtReserva.TabIndex = 86;
+            this.txtReserva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtAdesao
+            // 
+            this.txtAdesao.BackColor = System.Drawing.Color.White;
+            this.txtAdesao.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.txtAdesao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAdesao.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdesao.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtAdesao.Location = new System.Drawing.Point(16, 245);
+            this.txtAdesao.Name = "txtAdesao";
+            this.txtAdesao.Size = new System.Drawing.Size(167, 22);
+            this.txtAdesao.TabIndex = 83;
+            this.txtAdesao.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtAdministrativa
+            // 
+            this.txtAdministrativa.BackColor = System.Drawing.Color.White;
+            this.txtAdministrativa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.txtAdministrativa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAdministrativa.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdministrativa.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtAdministrativa.Location = new System.Drawing.Point(16, 177);
+            this.txtAdministrativa.Name = "txtAdministrativa";
+            this.txtAdministrativa.Size = new System.Drawing.Size(167, 22);
+            this.txtAdministrativa.TabIndex = 81;
+            this.txtAdministrativa.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtPrazo
+            // 
+            this.txtPrazo.BackColor = System.Drawing.Color.White;
+            this.txtPrazo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.txtPrazo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrazo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrazo.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtPrazo.Location = new System.Drawing.Point(204, 177);
+            this.txtPrazo.Name = "txtPrazo";
+            this.txtPrazo.Size = new System.Drawing.Size(167, 22);
+            this.txtPrazo.TabIndex = 82;
+            this.txtPrazo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtValorBem
+            // 
+            this.txtValorBem.BackColor = System.Drawing.Color.White;
+            this.txtValorBem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.txtValorBem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValorBem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorBem.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtValorBem.Location = new System.Drawing.Point(204, 103);
+            this.txtValorBem.Name = "txtValorBem";
+            this.txtValorBem.Size = new System.Drawing.Size(167, 22);
+            this.txtValorBem.TabIndex = 80;
+            this.txtValorBem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblFundoReserva
+            // 
+            this.lblFundoReserva.AutoSize = true;
+            this.lblFundoReserva.BackColor = System.Drawing.Color.Transparent;
+            this.lblFundoReserva.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFundoReserva.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblFundoReserva.Location = new System.Drawing.Point(12, 283);
+            this.lblFundoReserva.Name = "lblFundoReserva";
+            this.lblFundoReserva.Size = new System.Drawing.Size(135, 21);
+            this.lblFundoReserva.TabIndex = 97;
+            this.lblFundoReserva.Text = "% Fundo Reserva";
+            // 
+            // rdbLanceLivre
+            // 
+            this.rdbLanceLivre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.rdbLanceLivre.BaseColor = System.Drawing.Color.White;
+            this.rdbLanceLivre.BorderColor = System.Drawing.Color.Lime;
+            this.rdbLanceLivre.Checked = false;
+            this.rdbLanceLivre.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdbLanceLivre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbLanceLivre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.rdbLanceLivre.Location = new System.Drawing.Point(204, 295);
+            this.rdbLanceLivre.Name = "rdbLanceLivre";
+            this.rdbLanceLivre.Options = ReaLTaiizor.Controls.ForeverRadioButton._Options.Style1;
+            this.rdbLanceLivre.Size = new System.Drawing.Size(112, 22);
+            this.rdbLanceLivre.TabIndex = 84;
+            this.rdbLanceLivre.Text = "Lance Livre";
+            // 
+            // rdbLanceEmbutido
+            // 
+            this.rdbLanceEmbutido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(40)))), ((int)(((byte)(34)))));
+            this.rdbLanceEmbutido.BaseColor = System.Drawing.Color.White;
+            this.rdbLanceEmbutido.BorderColor = System.Drawing.Color.Lime;
+            this.rdbLanceEmbutido.Checked = false;
+            this.rdbLanceEmbutido.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdbLanceEmbutido.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbLanceEmbutido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.rdbLanceEmbutido.Location = new System.Drawing.Point(204, 328);
+            this.rdbLanceEmbutido.Name = "rdbLanceEmbutido";
+            this.rdbLanceEmbutido.Options = ReaLTaiizor.Controls.ForeverRadioButton._Options.Style1;
+            this.rdbLanceEmbutido.Size = new System.Drawing.Size(136, 22);
+            this.rdbLanceEmbutido.TabIndex = 85;
+            this.rdbLanceEmbutido.Text = "Lance Embutido";
+            // 
+            // lblPrazo
+            // 
+            this.lblPrazo.AutoSize = true;
+            this.lblPrazo.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrazo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrazo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblPrazo.Location = new System.Drawing.Point(200, 142);
+            this.lblPrazo.Name = "lblPrazo";
+            this.lblPrazo.Size = new System.Drawing.Size(50, 21);
+            this.lblPrazo.TabIndex = 96;
+            this.lblPrazo.Text = "Prazo";
+            // 
+            // lblTaxaAdmin
+            // 
+            this.lblTaxaAdmin.AutoSize = true;
+            this.lblTaxaAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.lblTaxaAdmin.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaxaAdmin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblTaxaAdmin.Location = new System.Drawing.Point(12, 144);
+            this.lblTaxaAdmin.Name = "lblTaxaAdmin";
+            this.lblTaxaAdmin.Size = new System.Drawing.Size(132, 21);
+            this.lblTaxaAdmin.TabIndex = 95;
+            this.lblTaxaAdmin.Text = "% Administrativa";
+            // 
+            // lblAdesao
+            // 
+            this.lblAdesao.AutoSize = true;
+            this.lblAdesao.BackColor = System.Drawing.Color.Transparent;
+            this.lblAdesao.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdesao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblAdesao.Location = new System.Drawing.Point(12, 211);
+            this.lblAdesao.Name = "lblAdesao";
+            this.lblAdesao.Size = new System.Drawing.Size(105, 21);
+            this.lblAdesao.TabIndex = 94;
+            this.lblAdesao.Text = "% de Adesão";
+            // 
+            // lblLance
+            // 
+            this.lblLance.AutoSize = true;
+            this.lblLance.BackColor = System.Drawing.Color.Transparent;
+            this.lblLance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblLance.Location = new System.Drawing.Point(200, 211);
+            this.lblLance.Name = "lblLance";
+            this.lblLance.Size = new System.Drawing.Size(69, 21);
+            this.lblLance.TabIndex = 93;
+            this.lblLance.Text = "% Lance";
+            // 
+            // lblValorBem
+            // 
+            this.lblValorBem.AutoSize = true;
+            this.lblValorBem.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorBem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorBem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.lblValorBem.Location = new System.Drawing.Point(200, 70);
+            this.lblValorBem.Name = "lblValorBem";
+            this.lblValorBem.Size = new System.Drawing.Size(108, 21);
+            this.lblValorBem.TabIndex = 92;
+            this.lblValorBem.Text = "Valor do Bem";
             // 
             // btnSair
             // 
@@ -49,12 +377,12 @@
             this.btnSair.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSair.HoverTextColor = System.Drawing.Color.White;
             this.btnSair.InfoColor = System.Drawing.Color.Black;
-            this.btnSair.Location = new System.Drawing.Point(611, 406);
+            this.btnSair.Location = new System.Drawing.Point(551, 406);
             this.btnSair.Name = "btnSair";
             this.btnSair.PrimaryColor = System.Drawing.Color.Transparent;
             this.btnSair.Size = new System.Drawing.Size(178, 32);
             this.btnSair.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.btnSair.TabIndex = 38;
+            this.btnSair.TabIndex = 91;
             this.btnSair.Text = "Sair";
             this.btnSair.TextColor = System.Drawing.Color.White;
             this.btnSair.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -70,36 +398,15 @@
             this.btnLimpar.ForeColor = System.Drawing.SystemColors.Control;
             this.btnLimpar.HoverTextColor = System.Drawing.Color.White;
             this.btnLimpar.InfoColor = System.Drawing.Color.Black;
-            this.btnLimpar.Location = new System.Drawing.Point(411, 406);
+            this.btnLimpar.Location = new System.Drawing.Point(309, 406);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.PrimaryColor = System.Drawing.Color.Transparent;
             this.btnLimpar.Size = new System.Drawing.Size(178, 32);
             this.btnLimpar.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.btnLimpar.TabIndex = 37;
+            this.btnLimpar.TabIndex = 90;
             this.btnLimpar.Text = "Limpar ";
             this.btnLimpar.TextColor = System.Drawing.Color.White;
             this.btnLimpar.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            // 
-            // btnPDF
-            // 
-            this.btnPDF.BorderColor = System.Drawing.Color.Yellow;
-            this.btnPDF.ButtonType = ReaLTaiizor.Util.HopeButtonType.Default;
-            this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPDF.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.btnPDF.DefaultColor = System.Drawing.Color.Transparent;
-            this.btnPDF.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnPDF.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnPDF.HoverTextColor = System.Drawing.Color.White;
-            this.btnPDF.InfoColor = System.Drawing.Color.Black;
-            this.btnPDF.Location = new System.Drawing.Point(213, 406);
-            this.btnPDF.Name = "btnPDF";
-            this.btnPDF.PrimaryColor = System.Drawing.Color.Transparent;
-            this.btnPDF.Size = new System.Drawing.Size(178, 32);
-            this.btnPDF.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.btnPDF.TabIndex = 36;
-            this.btnPDF.Text = "Gerar PDF";
-            this.btnPDF.TextColor = System.Drawing.Color.White;
-            this.btnPDF.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             // 
             // btnCalcular
             // 
@@ -112,87 +419,15 @@
             this.btnCalcular.ForeColor = System.Drawing.SystemColors.Control;
             this.btnCalcular.HoverTextColor = System.Drawing.Color.White;
             this.btnCalcular.InfoColor = System.Drawing.Color.Black;
-            this.btnCalcular.Location = new System.Drawing.Point(13, 406);
+            this.btnCalcular.Location = new System.Drawing.Point(77, 406);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.PrimaryColor = System.Drawing.Color.Transparent;
             this.btnCalcular.Size = new System.Drawing.Size(178, 32);
             this.btnCalcular.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.btnCalcular.TabIndex = 35;
+            this.btnCalcular.TabIndex = 89;
             this.btnCalcular.Text = "Calcular Oferta";
             this.btnCalcular.TextColor = System.Drawing.Color.White;
             this.btnCalcular.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            // 
-            // foreverComboBox1
-            // 
-            this.foreverComboBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(29)))));
-            this.foreverComboBox1.BGColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.foreverComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.foreverComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.foreverComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.foreverComboBox1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.foreverComboBox1.ForeColor = System.Drawing.Color.White;
-            this.foreverComboBox1.FormattingEnabled = true;
-            this.foreverComboBox1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.foreverComboBox1.HoverFontColor = System.Drawing.Color.White;
-            this.foreverComboBox1.ItemHeight = 18;
-            this.foreverComboBox1.Location = new System.Drawing.Point(456, 49);
-            this.foreverComboBox1.Name = "foreverComboBox1";
-            this.foreverComboBox1.Size = new System.Drawing.Size(217, 24);
-            this.foreverComboBox1.TabIndex = 39;
-            // 
-            // aloneComboBox1
-            // 
-            this.aloneComboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aloneComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.aloneComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.aloneComboBox1.EnabledCalc = true;
-            this.aloneComboBox1.FormattingEnabled = true;
-            this.aloneComboBox1.ItemHeight = 20;
-            this.aloneComboBox1.Location = new System.Drawing.Point(213, 27);
-            this.aloneComboBox1.Name = "aloneComboBox1";
-            this.aloneComboBox1.Size = new System.Drawing.Size(214, 26);
-            this.aloneComboBox1.TabIndex = 40;
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.comboBoxEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxEdit1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.comboBoxEdit1.DropDownHeight = 100;
-            this.comboBoxEdit1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxEdit1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.comboBoxEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.comboBoxEdit1.FormattingEnabled = true;
-            this.comboBoxEdit1.HoverSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.comboBoxEdit1.IntegralHeight = false;
-            this.comboBoxEdit1.ItemHeight = 20;
-            this.comboBoxEdit1.Location = new System.Drawing.Point(213, 62);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Size = new System.Drawing.Size(135, 26);
-            this.comboBoxEdit1.StartIndex = 0;
-            this.comboBoxEdit1.TabIndex = 41;
-            // 
-            // hopeRoundButton1
-            // 
-            this.hopeRoundButton1.BorderColor = System.Drawing.Color.Yellow;
-            this.hopeRoundButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Default;
-            this.hopeRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hopeRoundButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.hopeRoundButton1.DefaultColor = System.Drawing.Color.Transparent;
-            this.hopeRoundButton1.Enabled = false;
-            this.hopeRoundButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.hopeRoundButton1.ForeColor = System.Drawing.SystemColors.Control;
-            this.hopeRoundButton1.HoverTextColor = System.Drawing.Color.White;
-            this.hopeRoundButton1.InfoColor = System.Drawing.Color.Black;
-            this.hopeRoundButton1.Location = new System.Drawing.Point(543, 198);
-            this.hopeRoundButton1.Name = "hopeRoundButton1";
-            this.hopeRoundButton1.PrimaryColor = System.Drawing.Color.Transparent;
-            this.hopeRoundButton1.Size = new System.Drawing.Size(178, 32);
-            this.hopeRoundButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.hopeRoundButton1.TabIndex = 42;
-            this.hopeRoundButton1.Text = "Gerar PDF";
-            this.hopeRoundButton1.TextColor = System.Drawing.Color.White;
-            this.hopeRoundButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             // 
             // frmAgro
             // 
@@ -202,33 +437,70 @@
             this.BackgroundImage = global::TesteSimulador.Properties.Resources.ChatGPT_Image_30_de_jun__de_2026__19_44_45;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.hopeRoundButton1);
-            this.Controls.Add(this.comboBoxEdit1);
-            this.Controls.Add(this.aloneComboBox1);
-            this.Controls.Add(this.foreverComboBox1);
+            this.Controls.Add(this.txtNomeCliente);
+            this.Controls.Add(this.lblNomeCliente);
+            this.Controls.Add(this.cboAdministradora);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblEscolha);
+            this.Controls.Add(this.iconPictureBox1);
+            this.Controls.Add(this.txtLance);
+            this.Controls.Add(this.txtReserva);
+            this.Controls.Add(this.txtAdesao);
+            this.Controls.Add(this.txtAdministrativa);
+            this.Controls.Add(this.txtPrazo);
+            this.Controls.Add(this.txtValorBem);
+            this.Controls.Add(this.lblFundoReserva);
+            this.Controls.Add(this.rdbLanceLivre);
+            this.Controls.Add(this.rdbLanceEmbutido);
+            this.Controls.Add(this.lblPrazo);
+            this.Controls.Add(this.lblTaxaAdmin);
+            this.Controls.Add(this.lblAdesao);
+            this.Controls.Add(this.lblLance);
+            this.Controls.Add(this.lblValorBem);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnLimpar);
-            this.Controls.Add(this.btnPDF);
             this.Controls.Add(this.btnCalcular);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAgro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAgro";
+            this.Text = "CONSULTORIA BENVENUTO - AGRO & PESADOS";
+            this.Load += new System.EventHandler(this.frmAgro_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Timer tmrFinal;
+        private ReaLTaiizor.Controls.MoonTextBox txtNomeCliente;
+        private ReaLTaiizor.Controls.LabelEdit lblNomeCliente;
+        private ReaLTaiizor.Controls.SkyComboBox cboAdministradora;
+        private System.Windows.Forms.Panel panel1;
+        private ReaLTaiizor.Controls.LabelEdit lblFinal;
+        private ReaLTaiizor.Controls.AloneProgressBar pbrFinal;
+        private ReaLTaiizor.Controls.LabelEdit lblEscolha;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private ReaLTaiizor.Controls.MoonTextBox txtLance;
+        private ReaLTaiizor.Controls.MoonTextBox txtReserva;
+        private ReaLTaiizor.Controls.MoonTextBox txtAdesao;
+        private ReaLTaiizor.Controls.MoonTextBox txtAdministrativa;
+        private ReaLTaiizor.Controls.MoonTextBox txtPrazo;
+        private ReaLTaiizor.Controls.MoonTextBox txtValorBem;
+        private ReaLTaiizor.Controls.LabelEdit lblFundoReserva;
+        private ReaLTaiizor.Controls.ForeverRadioButton rdbLanceLivre;
+        private ReaLTaiizor.Controls.ForeverRadioButton rdbLanceEmbutido;
+        private ReaLTaiizor.Controls.LabelEdit lblPrazo;
+        private ReaLTaiizor.Controls.LabelEdit lblTaxaAdmin;
+        private ReaLTaiizor.Controls.LabelEdit lblAdesao;
+        private ReaLTaiizor.Controls.LabelEdit lblLance;
+        private ReaLTaiizor.Controls.LabelEdit lblValorBem;
         private ReaLTaiizor.Controls.HopeRoundButton btnSair;
         private ReaLTaiizor.Controls.HopeRoundButton btnLimpar;
-        private ReaLTaiizor.Controls.HopeRoundButton btnPDF;
-        private ReaLTaiizor.Controls.HopeRoundButton btnCalcular;
-        private ReaLTaiizor.Controls.ForeverComboBox foreverComboBox1;
-        private ReaLTaiizor.Controls.AloneComboBox aloneComboBox1;
-        private ReaLTaiizor.Controls.ComboBoxEdit comboBoxEdit1;
-        private ReaLTaiizor.Controls.HopeRoundButton hopeRoundButton1;
+        public ReaLTaiizor.Controls.HopeRoundButton btnCalcular;
     }
 }

@@ -28,20 +28,306 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblTituloProposta = new ReaLTaiizor.Controls.BigLabel();
+            this.lblValorTotal = new System.Windows.Forms.Label();
+            this.lblAdministradora = new System.Windows.Forms.Label();
+            this.lblReserva = new System.Windows.Forms.Label();
+            this.lblPercentAdesao = new System.Windows.Forms.Label();
+            this.lblNomeCliente = new System.Windows.Forms.Label();
+            this.lblTaxaAdmin = new System.Windows.Forms.Label();
+            this.lblPrazo = new System.Windows.Forms.Label();
+            this.lblValorCarta = new System.Windows.Forms.Label();
+            this.btnCalcular = new ReaLTaiizor.Controls.HopeRoundButton();
+            this.hopeRoundButton1 = new ReaLTaiizor.Controls.HopeRoundButton();
+            this.lblTituloAdesao = new ReaLTaiizor.Controls.BigLabel();
+            this.lblValorParcelaAdesao = new System.Windows.Forms.Label();
+            this.lblTituloLance = new ReaLTaiizor.Controls.BigLabel();
+            this.lblParcela = new System.Windows.Forms.Label();
+            this.lblPosContemp = new System.Windows.Forms.Label();
+            this.lblPercentLance = new System.Windows.Forms.Label();
+            this.lblTipoLance = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lblTituloProposta
+            // 
+            this.lblTituloProposta.AutoSize = true;
+            this.lblTituloProposta.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloProposta.Font = new System.Drawing.Font("Segoe UI Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloProposta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblTituloProposta.Location = new System.Drawing.Point(211, 9);
+            this.lblTituloProposta.Name = "lblTituloProposta";
+            this.lblTituloProposta.Size = new System.Drawing.Size(273, 45);
+            this.lblTituloProposta.TabIndex = 0;
+            this.lblTituloProposta.Text = "Titulo proposta";
+            // 
+            // lblValorTotal
+            // 
+            this.lblValorTotal.AutoSize = true;
+            this.lblValorTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorTotal.Location = new System.Drawing.Point(341, 290);
+            this.lblValorTotal.Name = "lblValorTotal";
+            this.lblValorTotal.Size = new System.Drawing.Size(183, 16);
+            this.lblValorTotal.TabIndex = 20;
+            this.lblValorTotal.Text = "Valor Total da Operação:";
+            // 
+            // lblAdministradora
+            // 
+            this.lblAdministradora.AutoSize = true;
+            this.lblAdministradora.BackColor = System.Drawing.Color.Transparent;
+            this.lblAdministradora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdministradora.Location = new System.Drawing.Point(341, 115);
+            this.lblAdministradora.Name = "lblAdministradora";
+            this.lblAdministradora.Size = new System.Drawing.Size(190, 16);
+            this.lblAdministradora.TabIndex = 19;
+            this.lblAdministradora.Text = "Administradora Solicitada:";
+            // 
+            // lblReserva
+            // 
+            this.lblReserva.AutoSize = true;
+            this.lblReserva.BackColor = System.Drawing.Color.Transparent;
+            this.lblReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReserva.Location = new System.Drawing.Point(341, 253);
+            this.lblReserva.Name = "lblReserva";
+            this.lblReserva.Size = new System.Drawing.Size(178, 16);
+            this.lblReserva.TabIndex = 18;
+            this.lblReserva.Text = "Taxa de Fundo Reserva:";
+            // 
+            // lblPercentAdesao
+            // 
+            this.lblPercentAdesao.AutoSize = true;
+            this.lblPercentAdesao.BackColor = System.Drawing.Color.Transparent;
+            this.lblPercentAdesao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentAdesao.Location = new System.Drawing.Point(341, 216);
+            this.lblPercentAdesao.Name = "lblPercentAdesao";
+            this.lblPercentAdesao.Size = new System.Drawing.Size(126, 16);
+            this.lblPercentAdesao.TabIndex = 17;
+            this.lblPercentAdesao.Text = "Taxa de Adesão:";
+            // 
+            // lblNomeCliente
+            // 
+            this.lblNomeCliente.AutoSize = true;
+            this.lblNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeCliente.Location = new System.Drawing.Point(12, 115);
+            this.lblNomeCliente.Name = "lblNomeCliente";
+            this.lblNomeCliente.Size = new System.Drawing.Size(102, 16);
+            this.lblNomeCliente.TabIndex = 12;
+            this.lblNomeCliente.Text = "Nome cliente:";
+            // 
+            // lblTaxaAdmin
+            // 
+            this.lblTaxaAdmin.AutoSize = true;
+            this.lblTaxaAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.lblTaxaAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaxaAdmin.Location = new System.Drawing.Point(341, 181);
+            this.lblTaxaAdmin.Name = "lblTaxaAdmin";
+            this.lblTaxaAdmin.Size = new System.Drawing.Size(148, 16);
+            this.lblTaxaAdmin.TabIndex = 16;
+            this.lblTaxaAdmin.Text = "Taxa Administrativa:";
+            // 
+            // lblPrazo
+            // 
+            this.lblPrazo.AutoSize = true;
+            this.lblPrazo.BackColor = System.Drawing.Color.Transparent;
+            this.lblPrazo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrazo.Location = new System.Drawing.Point(12, 216);
+            this.lblPrazo.Name = "lblPrazo";
+            this.lblPrazo.Size = new System.Drawing.Size(51, 16);
+            this.lblPrazo.TabIndex = 15;
+            this.lblPrazo.Text = "Prazo:";
+            // 
+            // lblValorCarta
+            // 
+            this.lblValorCarta.AutoSize = true;
+            this.lblValorCarta.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorCarta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorCarta.Location = new System.Drawing.Point(12, 181);
+            this.lblValorCarta.Name = "lblValorCarta";
+            this.lblValorCarta.Size = new System.Drawing.Size(111, 16);
+            this.lblValorCarta.TabIndex = 14;
+            this.lblValorCarta.Text = "Valor da Carta:";
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCalcular.BorderColor = System.Drawing.Color.Yellow;
+            this.btnCalcular.ButtonType = ReaLTaiizor.Util.HopeButtonType.Default;
+            this.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCalcular.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.btnCalcular.DefaultColor = System.Drawing.Color.Transparent;
+            this.btnCalcular.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnCalcular.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnCalcular.HoverTextColor = System.Drawing.Color.White;
+            this.btnCalcular.InfoColor = System.Drawing.Color.Black;
+            this.btnCalcular.Location = new System.Drawing.Point(106, 667);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.PrimaryColor = System.Drawing.Color.Transparent;
+            this.btnCalcular.Size = new System.Drawing.Size(178, 32);
+            this.btnCalcular.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.btnCalcular.TabIndex = 113;
+            this.btnCalcular.Text = "Gerar PDF";
+            this.btnCalcular.TextColor = System.Drawing.Color.Black;
+            this.btnCalcular.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            // 
+            // hopeRoundButton1
+            // 
+            this.hopeRoundButton1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.hopeRoundButton1.BorderColor = System.Drawing.Color.Yellow;
+            this.hopeRoundButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Default;
+            this.hopeRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hopeRoundButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.hopeRoundButton1.DefaultColor = System.Drawing.Color.Transparent;
+            this.hopeRoundButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.hopeRoundButton1.ForeColor = System.Drawing.SystemColors.Control;
+            this.hopeRoundButton1.HoverTextColor = System.Drawing.Color.White;
+            this.hopeRoundButton1.InfoColor = System.Drawing.Color.Black;
+            this.hopeRoundButton1.Location = new System.Drawing.Point(408, 667);
+            this.hopeRoundButton1.Name = "hopeRoundButton1";
+            this.hopeRoundButton1.PrimaryColor = System.Drawing.Color.Transparent;
+            this.hopeRoundButton1.Size = new System.Drawing.Size(178, 32);
+            this.hopeRoundButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.hopeRoundButton1.TabIndex = 117;
+            this.hopeRoundButton1.Text = "Fechar";
+            this.hopeRoundButton1.TextColor = System.Drawing.Color.Black;
+            this.hopeRoundButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            // 
+            // lblTituloAdesao
+            // 
+            this.lblTituloAdesao.AutoSize = true;
+            this.lblTituloAdesao.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloAdesao.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloAdesao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblTituloAdesao.Location = new System.Drawing.Point(253, 141);
+            this.lblTituloAdesao.Name = "lblTituloAdesao";
+            this.lblTituloAdesao.Size = new System.Drawing.Size(184, 30);
+            this.lblTituloAdesao.TabIndex = 118;
+            this.lblTituloAdesao.Text = "Plano de Adesão";
+            // 
+            // lblValorParcelaAdesao
+            // 
+            this.lblValorParcelaAdesao.AutoSize = true;
+            this.lblValorParcelaAdesao.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorParcelaAdesao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorParcelaAdesao.Location = new System.Drawing.Point(12, 253);
+            this.lblValorParcelaAdesao.Name = "lblValorParcelaAdesao";
+            this.lblValorParcelaAdesao.Size = new System.Drawing.Size(127, 16);
+            this.lblValorParcelaAdesao.TabIndex = 119;
+            this.lblValorParcelaAdesao.Text = "Valor de parcela:";
+            // 
+            // lblTituloLance
+            // 
+            this.lblTituloLance.AutoSize = true;
+            this.lblTituloLance.BackColor = System.Drawing.Color.Transparent;
+            this.lblTituloLance.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloLance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblTituloLance.Location = new System.Drawing.Point(214, 316);
+            this.lblTituloLance.Name = "lblTituloLance";
+            this.lblTituloLance.Size = new System.Drawing.Size(254, 30);
+            this.lblTituloLance.TabIndex = 120;
+            this.lblTituloLance.Text = "Lance de Contemplação";
+            // 
+            // lblParcela
+            // 
+            this.lblParcela.AutoSize = true;
+            this.lblParcela.BackColor = System.Drawing.Color.Transparent;
+            this.lblParcela.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblParcela.Location = new System.Drawing.Point(12, 290);
+            this.lblParcela.Name = "lblParcela";
+            this.lblParcela.Size = new System.Drawing.Size(129, 16);
+            this.lblParcela.TabIndex = 121;
+            this.lblParcela.Text = "Demais parcelas:";
+            // 
+            // lblPosContemp
+            // 
+            this.lblPosContemp.AutoSize = true;
+            this.lblPosContemp.BackColor = System.Drawing.Color.Transparent;
+            this.lblPosContemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPosContemp.Location = new System.Drawing.Point(12, 448);
+            this.lblPosContemp.Name = "lblPosContemp";
+            this.lblPosContemp.Size = new System.Drawing.Size(204, 16);
+            this.lblPosContemp.TabIndex = 124;
+            this.lblPosContemp.Text = "Valor de parcela Pós Lance:";
+            // 
+            // lblPercentLance
+            // 
+            this.lblPercentLance.AutoSize = true;
+            this.lblPercentLance.BackColor = System.Drawing.Color.Transparent;
+            this.lblPercentLance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPercentLance.Location = new System.Drawing.Point(12, 411);
+            this.lblPercentLance.Name = "lblPercentLance";
+            this.lblPercentLance.Size = new System.Drawing.Size(92, 16);
+            this.lblPercentLance.TabIndex = 123;
+            this.lblPercentLance.Text = "% de Lance:";
+            // 
+            // lblTipoLance
+            // 
+            this.lblTipoLance.AutoSize = true;
+            this.lblTipoLance.BackColor = System.Drawing.Color.Transparent;
+            this.lblTipoLance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoLance.Location = new System.Drawing.Point(12, 376);
+            this.lblTipoLance.Name = "lblTipoLance";
+            this.lblTipoLance.Size = new System.Drawing.Size(111, 16);
+            this.lblTipoLance.TabIndex = 122;
+            this.lblTipoLance.Text = "Tipo de Lance:";
             // 
             // frmProposta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::TesteSimulador.Properties.Resources.Code_Generated_Image_1_;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(684, 711);
+            this.Controls.Add(this.lblPosContemp);
+            this.Controls.Add(this.lblPercentLance);
+            this.Controls.Add(this.lblTipoLance);
+            this.Controls.Add(this.lblParcela);
+            this.Controls.Add(this.lblTituloLance);
+            this.Controls.Add(this.lblValorParcelaAdesao);
+            this.Controls.Add(this.lblTituloAdesao);
+            this.Controls.Add(this.hopeRoundButton1);
+            this.Controls.Add(this.btnCalcular);
+            this.Controls.Add(this.lblValorTotal);
+            this.Controls.Add(this.lblAdministradora);
+            this.Controls.Add(this.lblReserva);
+            this.Controls.Add(this.lblPercentAdesao);
+            this.Controls.Add(this.lblNomeCliente);
+            this.Controls.Add(this.lblTaxaAdmin);
+            this.Controls.Add(this.lblPrazo);
+            this.Controls.Add(this.lblValorCarta);
+            this.Controls.Add(this.lblTituloProposta);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmProposta";
-            this.Text = "frmProposta";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProposta_FormClosed);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "CONSULTORIA BENVENUTO - PROPOSTA";
+            this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.Load += new System.EventHandler(this.frmProposta_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private ReaLTaiizor.Controls.BigLabel lblTituloProposta;
+        private System.Windows.Forms.Label lblValorTotal;
+        private System.Windows.Forms.Label lblAdministradora;
+        private System.Windows.Forms.Label lblReserva;
+        private System.Windows.Forms.Label lblPercentAdesao;
+        private System.Windows.Forms.Label lblNomeCliente;
+        private System.Windows.Forms.Label lblTaxaAdmin;
+        private System.Windows.Forms.Label lblPrazo;
+        private System.Windows.Forms.Label lblValorCarta;
+        public ReaLTaiizor.Controls.HopeRoundButton btnCalcular;
+        public ReaLTaiizor.Controls.HopeRoundButton hopeRoundButton1;
+        private ReaLTaiizor.Controls.BigLabel lblTituloAdesao;
+        private System.Windows.Forms.Label lblValorParcelaAdesao;
+        private ReaLTaiizor.Controls.BigLabel lblTituloLance;
+        private System.Windows.Forms.Label lblParcela;
+        private System.Windows.Forms.Label lblPosContemp;
+        private System.Windows.Forms.Label lblPercentLance;
+        private System.Windows.Forms.Label lblTipoLance;
     }
 }

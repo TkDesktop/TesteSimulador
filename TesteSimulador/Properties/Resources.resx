@@ -121,4 +121,10 @@
   <data name="ChatGPT Image 30 de jun. de 2026, 19_44_45" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ChatGPT Image 30 de jun. de 2026, 19_44_45.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Code_Generated_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Code_Generated_Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Code_Generated_Image(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Code_Generated_Image(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

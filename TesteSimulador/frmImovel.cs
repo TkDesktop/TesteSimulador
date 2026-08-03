@@ -21,10 +21,8 @@ namespace TesteSimulador
         int contadorPontos = 0;
         string mensagemBase = "Carregando Sistema";
 
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        private ResultadoCalculo resultado;
+        private Proposta proposta;
 
         private void Limpar()
         {
@@ -42,12 +40,9 @@ namespace TesteSimulador
 
             txtValorBem.Focus();
             btnCalcular.Enabled = true;
+            rdbConvencional.Checked = false;
+            rdbMaisPorMenos.Checked = false;
 
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e)
-        {
-            Limpar();
         }
 
         private void frmImovel_Load(object sender, EventArgs e)
@@ -91,35 +86,12 @@ namespace TesteSimulador
             {
                 tmrFinal.Stop();
                 lblFinal.Text = "Proposta concluída!";
-                
+
 
                 // Abre o formulário da proposta
-                frmProposta telaProposta = new frmProposta();
+                frmProposta telaProposta = new frmProposta(proposta, resultado);
                 telaProposta.ShowDialog();
             }
-        }
-
-        private void btnCalcular_Click(object sender, EventArgs e)
-        {
-            string mensagem = ValidarPreenchimento();
-
-            if (mensagem.Length > 0)
-            {
-                MessageBox.Show(mensagem, "ERRO DE PREENCHIMENTO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            
-            progresso = 0;
-            contadorPontos = 0;
-
-            pbrFinal.Value = 0;
-            pbrFinal.Visible = true;
-            lblFinal.Visible = true;
-
-            // Bloqueia o botão durante o processo
-            btnCalcular.Enabled = false;
-
-            tmrFinal.Start();
         }
 
         private string ValidarPreenchimento()
@@ -160,6 +132,82 @@ namespace TesteSimulador
             }
 
             return msgErro;
+        }
+
+        private Proposta PreencherClasse()
+        {
+            Proposta p = new Proposta();
+
+            p.NomeCliente = txtNomeCliente.Text;
+            int.TryParse(txtPrazo.Text, out int prazo);
+            p.Prazo = prazo;
+            decimal.TryParse(txtValorBem.Text, out decimal valorBem);
+            p.ValorBem = valorBem;
+            decimal.TryParse(txtAdministrativa.Text, out decimal taxaAdmin);
+            p.TaxaAdmin = taxaAdmin;
+            decimal.TryParse(txtAdesao.Text, out decimal taxaAdesao);
+            p.TaxaAdesao = taxaAdesao;
+            decimal.TryParse(txtReserva.Text, out decimal taxaReserva);
+            p.TaxaReserva = taxaReserva;
+            decimal.TryParse(txtLance.Text, out decimal lance);
+            p.Lance = lance;
+            p.Administradora = cboAdministradora.SelectedItem.ToString();
+
+            // Tipo de lance
+            if (rdbLanceLivre.Checked)
+                p.TipoLance = 1;
+            else if (rdbLanceEmbutido.Checked)
+                p.TipoLance = 2;
+            // Adesão
+            if (taxaAdesao > 0)
+            {
+                if (rdbConvencional.Checked)
+                    p.QuantidadeParcelasAdesao = 2;
+
+                if (rdbMaisPorMenos.Checked)
+                    p.QuantidadeParcelasAdesao = 12;
+            }
+            else
+            {
+                p.QuantidadeParcelasAdesao = 0;
+            }
+            return p;
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            string mensagem = ValidarPreenchimento();
+
+            if (mensagem.Length > 0)
+            {
+                MessageBox.Show(mensagem, "ERRO DE PREENCHIMENTO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            proposta = PreencherClasse();
+            CalculadoraConsorcio calc = new CalculadoraConsorcio();
+            resultado = calc.Calcular(proposta);
+            progresso = 0;
+            contadorPontos = 0;
+
+            pbrFinal.Value = 0;
+            pbrFinal.Visible = true;
+            lblFinal.Visible = true;
+
+            btnCalcular.Enabled = false;
+
+            tmrFinal.Start();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            Limpar();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
     
