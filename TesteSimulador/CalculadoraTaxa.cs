@@ -9,81 +9,66 @@ namespace TesteSimulador
     public class CalculadoraTaxa
     {
 
-
-        // ============================================
-        // FUNDO COMUM
-        // OBRIGATÓRIO
-        // ============================================
-
-        public decimal CalcularFundoComum(
-            decimal valorCredito,
-            int prazo)
+        // Fundo comum mensal
+        public decimal CalcularFundoComum(decimal valorCredito, int prazo)
         {
-
             if (valorCredito <= 0)
-                throw new Exception(
-                    "Valor do crédito deve ser maior que zero.");
-
+                throw new Exception("Valor do crédito deve ser maior que zero.");
 
             if (prazo <= 0)
-                throw new Exception(
-                    "Prazo deve ser maior que zero.");
-
+                throw new Exception("Prazo deve ser maior que zero.");
 
             return valorCredito / prazo;
         }
 
 
-
-        // ============================================
-        // TAXA ADMINISTRATIVA
-        // OBRIGATÓRIA
-        // ============================================
-
-        public decimal CalcularTaxaAdministrativa(
-            decimal valorCredito,
-            decimal percentualTaxa,
-            int prazo)
+        // Taxa administrativa mensal
+        public decimal CalcularTaxaAdministrativa(decimal valorCredito, decimal percentualTaxa, int prazo)
         {
-
             if (valorCredito <= 0)
-                throw new Exception(
-                    "Valor do crédito inválido.");
-
+                throw new Exception("Valor do crédito inválido.");
 
             if (prazo <= 0)
-                throw new Exception(
-                    "Prazo inválido.");
+                throw new Exception("Prazo inválido.");
 
-
-            decimal valorTotal = valorCredito * (percentualTaxa / 100M);
-
+            decimal valorTotal = CalcularValorTotalTaxaAdministrativa(valorCredito, percentualTaxa);
 
             return valorTotal / prazo;
         }
 
 
+        // Valor total da taxa administrativa
+        public decimal CalcularValorTotalTaxaAdministrativa(decimal valorCredito, decimal percentualTaxa)
+        {
+            if (percentualTaxa <= 0)
+                return 0;
 
-        // ============================================
-        // FUNDO DE RESERVA
-        // OPCIONAL
-        //
-        // Se percentual = 0
-        // retorna zero
-        // ============================================
+            return valorCredito * (percentualTaxa / 100M);
+        }
 
+
+        // Fundo de reserva mensal
         public decimal CalcularFundoReserva(decimal valorCredito, decimal percentualReserva, int prazo)
         {
-
-            // Não possui fundo reserva
             if (percentualReserva <= 0)
                 return 0;
 
+            if (prazo <= 0)
+                throw new Exception("Prazo inválido.");
 
-            decimal valorTotal = valorCredito * (percentualReserva / 100M);
-
+            decimal valorTotal = CalcularValorTotalFundoReserva(valorCredito, percentualReserva);
 
             return valorTotal / prazo;
+        }
+
+
+        // Valor total do fundo de reserva
+        public decimal CalcularValorTotalFundoReserva(decimal valorCredito, decimal percentualReserva)
+        {
+            if (percentualReserva <= 0)
+                return 0;
+
+            return valorCredito * (percentualReserva / 100M);
         }
     }
 }

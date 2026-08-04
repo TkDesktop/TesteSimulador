@@ -38,7 +38,7 @@
             this.lblTaxaAdmin = new System.Windows.Forms.Label();
             this.lblPrazo = new System.Windows.Forms.Label();
             this.lblValorCarta = new System.Windows.Forms.Label();
-            this.btnCalcular = new ReaLTaiizor.Controls.HopeRoundButton();
+            this.btnGerarPDF = new ReaLTaiizor.Controls.HopeRoundButton();
             this.btnFechar = new ReaLTaiizor.Controls.HopeRoundButton();
             this.lblTituloAdesao = new ReaLTaiizor.Controls.BigLabel();
             this.lblValorParcelaAdesao = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@
             this.lblPosContemp = new System.Windows.Forms.Label();
             this.lblPercentLance = new System.Windows.Forms.Label();
             this.lblTipoLance = new System.Windows.Forms.Label();
+            this.lblReducaoLance = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTituloProposta
@@ -54,8 +55,8 @@
             this.lblTituloProposta.AutoSize = true;
             this.lblTituloProposta.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloProposta.Font = new System.Drawing.Font("Segoe UI Black", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProposta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblTituloProposta.Location = new System.Drawing.Point(211, 9);
+            this.lblTituloProposta.ForeColor = System.Drawing.Color.White;
+            this.lblTituloProposta.Location = new System.Drawing.Point(185, 9);
             this.lblTituloProposta.Name = "lblTituloProposta";
             this.lblTituloProposta.Size = new System.Drawing.Size(273, 45);
             this.lblTituloProposta.TabIndex = 0;
@@ -77,7 +78,7 @@
             this.lblAdministradora.AutoSize = true;
             this.lblAdministradora.BackColor = System.Drawing.Color.Transparent;
             this.lblAdministradora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdministradora.Location = new System.Drawing.Point(341, 115);
+            this.lblAdministradora.Location = new System.Drawing.Point(341, 92);
             this.lblAdministradora.Name = "lblAdministradora";
             this.lblAdministradora.Size = new System.Drawing.Size(190, 16);
             this.lblAdministradora.TabIndex = 19;
@@ -110,7 +111,7 @@
             this.lblNomeCliente.AutoSize = true;
             this.lblNomeCliente.BackColor = System.Drawing.Color.Transparent;
             this.lblNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeCliente.Location = new System.Drawing.Point(12, 115);
+            this.lblNomeCliente.Location = new System.Drawing.Point(12, 92);
             this.lblNomeCliente.Name = "lblNomeCliente";
             this.lblNomeCliente.Size = new System.Drawing.Size(102, 16);
             this.lblNomeCliente.TabIndex = 12;
@@ -149,27 +150,28 @@
             this.lblValorCarta.TabIndex = 14;
             this.lblValorCarta.Text = "Valor da Carta:";
             // 
-            // btnCalcular
+            // btnGerarPDF
             // 
-            this.btnCalcular.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCalcular.BorderColor = System.Drawing.Color.Yellow;
-            this.btnCalcular.ButtonType = ReaLTaiizor.Util.HopeButtonType.Default;
-            this.btnCalcular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalcular.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.btnCalcular.DefaultColor = System.Drawing.Color.Transparent;
-            this.btnCalcular.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnCalcular.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCalcular.HoverTextColor = System.Drawing.Color.White;
-            this.btnCalcular.InfoColor = System.Drawing.Color.Black;
-            this.btnCalcular.Location = new System.Drawing.Point(106, 667);
-            this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.PrimaryColor = System.Drawing.Color.Transparent;
-            this.btnCalcular.Size = new System.Drawing.Size(178, 32);
-            this.btnCalcular.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.btnCalcular.TabIndex = 113;
-            this.btnCalcular.Text = "Gerar PDF";
-            this.btnCalcular.TextColor = System.Drawing.Color.Black;
-            this.btnCalcular.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnGerarPDF.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGerarPDF.BorderColor = System.Drawing.Color.Yellow;
+            this.btnGerarPDF.ButtonType = ReaLTaiizor.Util.HopeButtonType.Default;
+            this.btnGerarPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGerarPDF.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.btnGerarPDF.DefaultColor = System.Drawing.Color.Transparent;
+            this.btnGerarPDF.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnGerarPDF.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnGerarPDF.HoverTextColor = System.Drawing.Color.Black;
+            this.btnGerarPDF.InfoColor = System.Drawing.Color.Black;
+            this.btnGerarPDF.Location = new System.Drawing.Point(106, 667);
+            this.btnGerarPDF.Name = "btnGerarPDF";
+            this.btnGerarPDF.PrimaryColor = System.Drawing.Color.Transparent;
+            this.btnGerarPDF.Size = new System.Drawing.Size(178, 32);
+            this.btnGerarPDF.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.btnGerarPDF.TabIndex = 113;
+            this.btnGerarPDF.Text = "Gerar PDF";
+            this.btnGerarPDF.TextColor = System.Drawing.Color.Black;
+            this.btnGerarPDF.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnGerarPDF.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // btnFechar
             // 
@@ -181,7 +183,7 @@
             this.btnFechar.DefaultColor = System.Drawing.Color.Transparent;
             this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnFechar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFechar.HoverTextColor = System.Drawing.Color.White;
+            this.btnFechar.HoverTextColor = System.Drawing.Color.Black;
             this.btnFechar.InfoColor = System.Drawing.Color.Black;
             this.btnFechar.Location = new System.Drawing.Point(408, 667);
             this.btnFechar.Name = "btnFechar";
@@ -199,8 +201,8 @@
             this.lblTituloAdesao.AutoSize = true;
             this.lblTituloAdesao.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloAdesao.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloAdesao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblTituloAdesao.Location = new System.Drawing.Point(253, 141);
+            this.lblTituloAdesao.ForeColor = System.Drawing.Color.Yellow;
+            this.lblTituloAdesao.Location = new System.Drawing.Point(228, 138);
             this.lblTituloAdesao.Name = "lblTituloAdesao";
             this.lblTituloAdesao.Size = new System.Drawing.Size(184, 30);
             this.lblTituloAdesao.TabIndex = 118;
@@ -222,8 +224,8 @@
             this.lblTituloLance.AutoSize = true;
             this.lblTituloLance.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloLance.Font = new System.Drawing.Font("Segoe UI Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloLance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblTituloLance.Location = new System.Drawing.Point(214, 316);
+            this.lblTituloLance.ForeColor = System.Drawing.Color.Yellow;
+            this.lblTituloLance.Location = new System.Drawing.Point(188, 335);
             this.lblTituloLance.Name = "lblTituloLance";
             this.lblTituloLance.Size = new System.Drawing.Size(254, 30);
             this.lblTituloLance.TabIndex = 120;
@@ -273,13 +275,26 @@
             this.lblTipoLance.TabIndex = 122;
             this.lblTipoLance.Text = "Tipo de Lance:";
             // 
+            // lblReducaoLance
+            // 
+            this.lblReducaoLance.AutoSize = true;
+            this.lblReducaoLance.BackColor = System.Drawing.Color.Transparent;
+            this.lblReducaoLance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReducaoLance.Location = new System.Drawing.Point(285, 376);
+            this.lblReducaoLance.Name = "lblReducaoLance";
+            this.lblReducaoLance.Size = new System.Drawing.Size(121, 16);
+            this.lblReducaoLance.TabIndex = 125;
+            this.lblReducaoLance.Text = "Prazo Reduzido:";
+            // 
             // frmProposta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = global::TesteSimulador.Properties.Resources.Code_Generated_Image_1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(684, 711);
+            this.Controls.Add(this.lblReducaoLance);
             this.Controls.Add(this.lblPosContemp);
             this.Controls.Add(this.lblPercentLance);
             this.Controls.Add(this.lblTipoLance);
@@ -288,7 +303,7 @@
             this.Controls.Add(this.lblValorParcelaAdesao);
             this.Controls.Add(this.lblTituloAdesao);
             this.Controls.Add(this.btnFechar);
-            this.Controls.Add(this.btnCalcular);
+            this.Controls.Add(this.btnGerarPDF);
             this.Controls.Add(this.lblValorTotal);
             this.Controls.Add(this.lblAdministradora);
             this.Controls.Add(this.lblReserva);
@@ -324,7 +339,7 @@
         private System.Windows.Forms.Label lblTaxaAdmin;
         private System.Windows.Forms.Label lblPrazo;
         private System.Windows.Forms.Label lblValorCarta;
-        public ReaLTaiizor.Controls.HopeRoundButton btnCalcular;
+        public ReaLTaiizor.Controls.HopeRoundButton btnGerarPDF;
         public ReaLTaiizor.Controls.HopeRoundButton btnFechar;
         private ReaLTaiizor.Controls.BigLabel lblTituloAdesao;
         private System.Windows.Forms.Label lblValorParcelaAdesao;
@@ -333,5 +348,6 @@
         private System.Windows.Forms.Label lblPosContemp;
         private System.Windows.Forms.Label lblPercentLance;
         private System.Windows.Forms.Label lblTipoLance;
+        private System.Windows.Forms.Label lblReducaoLance;
     }
 }

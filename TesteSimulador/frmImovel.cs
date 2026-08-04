@@ -26,6 +26,7 @@ namespace TesteSimulador
 
         private void Limpar()
         {
+            txtNomeCliente.Clear();
             txtValorBem.Clear();
             txtPrazo.Clear();
             txtAdministrativa.Clear();

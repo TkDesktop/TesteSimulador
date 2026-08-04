@@ -8,58 +8,56 @@ namespace TesteSimulador
 {
     public class ResultadoCalculo
     {
-        // Parte destinada ao pagamento do crédito
+        // Fundo comum mensal
         public decimal FundoComum { get; set; }
-        // Taxa administrativa em valor mensal
+        // Taxa administrativa mensal
         public decimal ValorTaxaAdmin { get; set; }
-        // Fundo reserva em valor mensal
+        // Fundo reserva mensal
         public decimal ValorFundoReserva { get; set; }
-   
+        // VALORES TOTAIS DAS TAXAS
+        // Taxa administrativa total do contrato
+        public decimal ValorTotalTaxaAdmin { get; set; }
+        // Fundo reserva total do contrato
+        public decimal ValorTotalFundoReserva { get; set; }
+        // ADESÃO
+        // Valor total da adesão
         public decimal ValorTotalAdesao { get; set; }
 
-
-        // Valor da parcela da adesão
-        // Depende:
-        // Convencional = divide em 2
-        // Mais por Menos = divide em 12
+        // Valor da adesão dividida em 2 ou 12 vezes
         public decimal ValorParcelaAdesao { get; set; }
-
-        // Parcela antes da contemplação
+        // PARCELAS
+        // Parcela sem adesão
+        public decimal ParcelaAntesContemplacao { get; set; }
+        // Parcela incluindo adesão
         public decimal ParcelaInicial { get; set; }
-
-
-        // Parcela depois da contemplação
-        // Aplicando regra de lance
+        // Parcela após contemplação/lance
         public decimal ParcelaPosContemplacao { get; set; }
-
+        // LANCE
         // Valor do lance em reais
         public decimal ValorLance { get; set; }
-
-
-        // Percentual utilizado
+        // Percentual utilizado no lance
         public decimal PercentualLance { get; set; }
-
+        // OPERAÇÃO
+        // Carta + taxas + adesão
         public decimal ValorTotalOperacao { get; set; }
-
-
-
-        // ============================
-        // CONSTRUTOR
-        // ============================
+        public int ParcelasReduzidasLance { get; set; }
+        public int PrazoFinal { get; set; }
 
         public ResultadoCalculo()
         {
             FundoComum = 0;
             ValorTaxaAdmin = 0;
             ValorFundoReserva = 0;
+            ValorTotalTaxaAdmin = 0;
+            ValorTotalFundoReserva = 0;
             ValorTotalAdesao = 0;
             ValorParcelaAdesao = 0;
+            ParcelaAntesContemplacao = 0;
             ParcelaInicial = 0;
             ParcelaPosContemplacao = 0;
             ValorLance = 0;
             PercentualLance = 0;
-            ValorTotalOperacao = 0; 
+            ValorTotalOperacao = 0;
         }
-
     }
 }

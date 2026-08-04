@@ -437,6 +437,7 @@
             // 
             // rdbMaisPorMenos
             // 
+            this.rdbMaisPorMenos.BackColor = System.Drawing.Color.White;
             this.rdbMaisPorMenos.Checked = false;
             this.rdbMaisPorMenos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdbMaisPorMenos.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";
@@ -453,6 +454,7 @@
             // 
             // rdbConvencional
             // 
+            this.rdbConvencional.BackColor = System.Drawing.Color.White;
             this.rdbConvencional.Checked = false;
             this.rdbConvencional.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdbConvencional.Customization = "PDw8/+3t7f/m5ub/p6en/2RkZP8=";

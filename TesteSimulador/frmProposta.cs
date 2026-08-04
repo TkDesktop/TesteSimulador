@@ -39,23 +39,74 @@ namespace TesteSimulador
         private void CarregarDados()
         {
             lblNomeCliente.Text = $"Cliente: {proposta.NomeCliente}";
+
             lblValorCarta.Text = $"Valor da Carta: {proposta.ValorBem:C2}";
+
             lblPrazo.Text = $"Prazo: {proposta.Prazo} meses";
+
             lblAdministradora.Text = $"Administradora: {proposta.Administradora}";
-            lblTaxaAdmin.Text = $"Taxa Administrativa: {resultado.ValorTaxaAdmin:C2}";
-            lblReserva.Text = $"Fundo Reserva: {resultado.ValorFundoReserva:C2}";
-            lblPercentAdesao.Text = $"Adesão: {resultado.ValorTotalAdesao:C2}";
-            lblParcela.Text = $"Parcela Inicial: {resultado.ParcelaInicial:C2}";
-            lblTipoLance.Text = proposta.TipoLance == 1 ? "Tipo Lance: Livre": "Tipo Lance: Embutido";
+
+
+            // Valores totais da operação
+            lblTaxaAdmin.Text = $"Taxa Administrativa: {resultado.ValorTotalTaxaAdmin:C2}";
+            lblReserva.Text = $"Fundo Reserva: {resultado.ValorTotalFundoReserva:C2}";
+            lblPercentAdesao.Text = $"Adesão Total: {resultado.ValorTotalAdesao:C2}";
+            // Parcelas
+            lblParcela.Text = $"Parcela Normal: {resultado.ParcelaAntesContemplacao:C2}";
+            lblValorParcelaAdesao.Text = $"Parcela Adesão ({proposta.QuantidadeParcelasAdesao}x): {resultado.ValorParcelaAdesao + resultado.ParcelaAntesContemplacao:C2}";
+            // Lance
+            lblTipoLance.Text = proposta.TipoLance == 1 ? "Tipo Lance: Livre" : "Tipo Lance: Embutido";
             lblPercentLance.Text = $"Percentual Lance: {resultado.PercentualLance:0.##}%";
+            // Pós contemplação
             lblPosContemp.Text = $"Pós Contemplação: {resultado.ParcelaPosContemplacao:C2}";
+            // Total da operação
             lblValorTotal.Text = $"Valor Total Operação: {resultado.ValorTotalOperacao:C2}";
-            
+
+            if (proposta.TipoLance == 1 && resultado.ParcelasReduzidasLance > 0)
+            {
+                lblReducaoLance.Text = $"Lance reduziu {resultado.ParcelasReduzidasLance} parcelas.\n\nNovo prazo: {resultado.PrazoFinal} meses";
+            }
+            else
+            {
+                lblReducaoLance.Text = "Lance aplicado no crédito.";
+            }
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GeradorPDF gerador = new GeradorPDF();
+
+                string arquivoGerado = gerador.Gerar(proposta, resultado);
+
+                MessageBox.Show(
+                    "PDF criado com sucesso!",
+                    "Geração de Proposta",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                // abre a pasta do PDF
+                System.Diagnostics.Process.Start(
+                    "explorer.exe",
+                    System.IO.Path.GetDirectoryName(arquivoGerado)
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Erro ao gerar PDF:\n" + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
     }
 }
