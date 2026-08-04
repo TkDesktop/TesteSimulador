@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPersonalizado));
             this.tmrFinal = new System.Windows.Forms.Timer(this.components);
             this.txtNomeCliente = new ReaLTaiizor.Controls.MoonTextBox();
             this.lblNomeCliente = new ReaLTaiizor.Controls.LabelEdit();
@@ -461,11 +462,12 @@
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnCalcular);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPersonalizado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmPersonalizado";
+            this.Text = "CONSULTORIA BENVENUTO - PERSONALIZADO";
             this.Load += new System.EventHandler(this.frmPersonalizado_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

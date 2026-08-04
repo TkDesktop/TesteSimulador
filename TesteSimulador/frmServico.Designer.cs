@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmServico));
             this.tmrFinal = new System.Windows.Forms.Timer(this.components);
             this.txtNomeCliente = new ReaLTaiizor.Controls.MoonTextBox();
             this.lblNomeCliente = new ReaLTaiizor.Controls.LabelEdit();
@@ -461,6 +462,7 @@
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnCalcular);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmServico";

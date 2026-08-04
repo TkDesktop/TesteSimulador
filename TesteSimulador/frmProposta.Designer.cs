@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProposta));
             this.lblTituloProposta = new ReaLTaiizor.Controls.BigLabel();
             this.lblValorTotal = new System.Windows.Forms.Label();
             this.lblAdministradora = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@
             this.lblPrazo = new System.Windows.Forms.Label();
             this.lblValorCarta = new System.Windows.Forms.Label();
             this.btnCalcular = new ReaLTaiizor.Controls.HopeRoundButton();
-            this.hopeRoundButton1 = new ReaLTaiizor.Controls.HopeRoundButton();
+            this.btnFechar = new ReaLTaiizor.Controls.HopeRoundButton();
             this.lblTituloAdesao = new ReaLTaiizor.Controls.BigLabel();
             this.lblValorParcelaAdesao = new System.Windows.Forms.Label();
             this.lblTituloLance = new ReaLTaiizor.Controls.BigLabel();
@@ -107,6 +108,7 @@
             // lblNomeCliente
             // 
             this.lblNomeCliente.AutoSize = true;
+            this.lblNomeCliente.BackColor = System.Drawing.Color.Transparent;
             this.lblNomeCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomeCliente.Location = new System.Drawing.Point(12, 115);
             this.lblNomeCliente.Name = "lblNomeCliente";
@@ -169,27 +171,28 @@
             this.btnCalcular.TextColor = System.Drawing.Color.Black;
             this.btnCalcular.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             // 
-            // hopeRoundButton1
+            // btnFechar
             // 
-            this.hopeRoundButton1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.hopeRoundButton1.BorderColor = System.Drawing.Color.Yellow;
-            this.hopeRoundButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Default;
-            this.hopeRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.hopeRoundButton1.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.hopeRoundButton1.DefaultColor = System.Drawing.Color.Transparent;
-            this.hopeRoundButton1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.hopeRoundButton1.ForeColor = System.Drawing.SystemColors.Control;
-            this.hopeRoundButton1.HoverTextColor = System.Drawing.Color.White;
-            this.hopeRoundButton1.InfoColor = System.Drawing.Color.Black;
-            this.hopeRoundButton1.Location = new System.Drawing.Point(408, 667);
-            this.hopeRoundButton1.Name = "hopeRoundButton1";
-            this.hopeRoundButton1.PrimaryColor = System.Drawing.Color.Transparent;
-            this.hopeRoundButton1.Size = new System.Drawing.Size(178, 32);
-            this.hopeRoundButton1.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.hopeRoundButton1.TabIndex = 117;
-            this.hopeRoundButton1.Text = "Fechar";
-            this.hopeRoundButton1.TextColor = System.Drawing.Color.Black;
-            this.hopeRoundButton1.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnFechar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnFechar.BorderColor = System.Drawing.Color.Yellow;
+            this.btnFechar.ButtonType = ReaLTaiizor.Util.HopeButtonType.Default;
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFechar.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
+            this.btnFechar.DefaultColor = System.Drawing.Color.Transparent;
+            this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnFechar.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnFechar.HoverTextColor = System.Drawing.Color.White;
+            this.btnFechar.InfoColor = System.Drawing.Color.Black;
+            this.btnFechar.Location = new System.Drawing.Point(408, 667);
+            this.btnFechar.Name = "btnFechar";
+            this.btnFechar.PrimaryColor = System.Drawing.Color.Transparent;
+            this.btnFechar.Size = new System.Drawing.Size(178, 32);
+            this.btnFechar.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.btnFechar.TabIndex = 117;
+            this.btnFechar.Text = "Fechar";
+            this.btnFechar.TextColor = System.Drawing.Color.Black;
+            this.btnFechar.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // lblTituloAdesao
             // 
@@ -284,7 +287,7 @@
             this.Controls.Add(this.lblTituloLance);
             this.Controls.Add(this.lblValorParcelaAdesao);
             this.Controls.Add(this.lblTituloAdesao);
-            this.Controls.Add(this.hopeRoundButton1);
+            this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.lblValorTotal);
             this.Controls.Add(this.lblAdministradora);
@@ -297,6 +300,7 @@
             this.Controls.Add(this.lblTituloProposta);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmProposta";
@@ -321,7 +325,7 @@
         private System.Windows.Forms.Label lblPrazo;
         private System.Windows.Forms.Label lblValorCarta;
         public ReaLTaiizor.Controls.HopeRoundButton btnCalcular;
-        public ReaLTaiizor.Controls.HopeRoundButton hopeRoundButton1;
+        public ReaLTaiizor.Controls.HopeRoundButton btnFechar;
         private ReaLTaiizor.Controls.BigLabel lblTituloAdesao;
         private System.Windows.Forms.Label lblValorParcelaAdesao;
         private ReaLTaiizor.Controls.BigLabel lblTituloLance;

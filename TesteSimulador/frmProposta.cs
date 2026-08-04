@@ -38,31 +38,10 @@ namespace TesteSimulador
 
         private void CarregarDados()
         {
-            // =========================
-            // DADOS PRINCIPAIS
-            // =========================
-
-            lblNomeCliente.Text =
-                $"Cliente: {proposta.NomeCliente}";
-
-
-            lblValorCarta.Text =
-                $"Valor da Carta: {proposta.ValorBem:C2}";
-
-
-            lblPrazo.Text =
-                $"Prazo: {proposta.Prazo} meses";
-
-
-            lblAdministradora.Text =
-                $"Administradora: {proposta.Administradora}";
-
-
-
-            // =========================
-            // TAXAS
-            // =========================
-
+            lblNomeCliente.Text = $"Cliente: {proposta.NomeCliente}";
+            lblValorCarta.Text = $"Valor da Carta: {proposta.ValorBem:C2}";
+            lblPrazo.Text = $"Prazo: {proposta.Prazo} meses";
+            lblAdministradora.Text = $"Administradora: {proposta.Administradora}";
             lblTaxaAdmin.Text = $"Taxa Administrativa: {resultado.ValorTaxaAdmin:C2}";
             lblReserva.Text = $"Fundo Reserva: {resultado.ValorFundoReserva:C2}";
             lblPercentAdesao.Text = $"Adesão: {resultado.ValorTotalAdesao:C2}";
@@ -71,7 +50,12 @@ namespace TesteSimulador
             lblPercentLance.Text = $"Percentual Lance: {resultado.PercentualLance:0.##}%";
             lblPosContemp.Text = $"Pós Contemplação: {resultado.ParcelaPosContemplacao:C2}";
             lblValorTotal.Text = $"Valor Total Operação: {resultado.ValorTotalOperacao:C2}";
+            
         }
 
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
