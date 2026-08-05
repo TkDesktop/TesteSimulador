@@ -10,11 +10,42 @@ using System.Windows.Forms;
 
 namespace TesteSimulador
 {
-    public partial class frmImovel : Form
+    public partial class frmSimulador : Form
     {
-        public frmImovel()
+        private CategoriaConsorcio categoria;
+
+        public frmSimulador(CategoriaConsorcio categoria)
         {
             InitializeComponent();
+
+            this.categoria = categoria;
+
+            var dados = LimitesConsorcio.ObterDados(categoria);
+
+            Text = $"CONSULTORIA BENVENUTO - {dados.Nome.ToUpper()}";
+
+            txtPrazo.KeyPress += ValidacaoCampos.ApenasNumeros;
+
+            // Campos percentuais
+            txtAdministrativa.KeyPress += ValidacaoCampos.ApenasDecimal;
+            txtAdministrativa.Enter += ValidacaoCampos.RemoverPercentual;
+            txtAdministrativa.Leave += ValidacaoCampos.AdicionarPercentual;
+
+            txtAdesao.KeyPress += ValidacaoCampos.ApenasDecimal;
+            txtAdesao.Enter += ValidacaoCampos.RemoverPercentual;
+            txtAdesao.Leave += ValidacaoCampos.AdicionarPercentual;
+
+            txtReserva.KeyPress += ValidacaoCampos.ApenasDecimal;
+            txtReserva.Enter += ValidacaoCampos.RemoverPercentual;
+            txtReserva.Leave += ValidacaoCampos.AdicionarPercentual;
+
+            txtLance.KeyPress += ValidacaoCampos.ApenasDecimal;
+            txtLance.Enter += ValidacaoCampos.RemoverPercentual;
+            txtLance.Leave += ValidacaoCampos.AdicionarPercentual;
+
+            DefinirCategoria(categoria);
+
+
         }
 
         int progresso = 0;
@@ -49,6 +80,9 @@ namespace TesteSimulador
         private void frmImovel_Load(object sender, EventArgs e)
         {
             cboAdministradora.SelectedIndex = -1;
+            txtValorBem.KeyPress += ValidacaoCampos.ApenasDecimal;
+            txtValorBem.Enter += ValidacaoCampos.RemoverMoeda;
+            txtValorBem.Leave += ValidacaoCampos.AdicionarMoeda;
         }
 
         private void tmrFinal_Tick(object sender, EventArgs e)
@@ -210,28 +244,7 @@ namespace TesteSimulador
         {
             Close();
         }
-
-        private bool formatando = false;
-        private void txtValorBem_TextChanged(object sender, EventArgs e)
-        {
-            
-            
-            if (formatando) return;
-
-            formatando = true;
-
-            string numeros = new string(txtValorBem.Text.Where(char.IsDigit).ToArray());
-
-            if (string.IsNullOrEmpty(numeros))
-                numeros = "0";
-
-            decimal valor = decimal.Parse(numeros) / 100;
-
-            txtValorBem.Text = valor.ToString("N2");
-            txtValorBem.SelectionStart = txtValorBem.Text.Length;
-
-            formatando = false;
-        }
+    
     }
     
 }

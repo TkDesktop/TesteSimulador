@@ -1,6 +1,6 @@
 ﻿namespace TesteSimulador
 {
-    partial class frmImovel
+    partial class frmSimulador
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImovel));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSimulador));
             this.tmrFinal = new System.Windows.Forms.Timer(this.components);
             this.txtNomeCliente = new ReaLTaiizor.Controls.MoonTextBox();
             this.lblNomeCliente = new ReaLTaiizor.Controls.LabelEdit();
@@ -468,9 +468,8 @@
             this.txtValorBem.Size = new System.Drawing.Size(167, 22);
             this.txtValorBem.TabIndex = 103;
             this.txtValorBem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtValorBem.TextChanged += new System.EventHandler(this.txtValorBem_TextChanged);
             // 
-            // frmImovel
+            // frmSimulador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -508,7 +507,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmImovel";
+            this.Name = "frmSimulador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CONSULTORIA BENVENUTO - IMÓVEL";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;

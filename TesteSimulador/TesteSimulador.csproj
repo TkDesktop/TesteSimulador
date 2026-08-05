@@ -87,35 +87,12 @@
     <Compile Include="CalculadoraLance.cs" />
     <Compile Include="CalculadoraTaxa.cs" />
     <Compile Include="CalcularParcela.cs" />
-    <Compile Include="frmAgro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAgro.Designer.cs">
-      <DependentUpon>frmAgro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAutomovel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAutomovel.Designer.cs">
-      <DependentUpon>frmAutomovel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCapitaldeGiro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCapitaldeGiro.Designer.cs">
-      <DependentUpon>frmCapitaldeGiro.cs</DependentUpon>
-    </Compile>
+    <Compile Include="CategoriaConsorcio.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPersonalizado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPersonalizado.Designer.cs">
-      <DependentUpon>frmPersonalizado.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -129,50 +106,32 @@
     <Compile Include="frmProposta.Designer.cs">
       <DependentUpon>frmProposta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmServico.cs">
+    <Compile Include="frmSimulador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmServico.Designer.cs">
-      <DependentUpon>frmServico.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmImovel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmImovel.Designer.cs">
-      <DependentUpon>frmImovel.cs</DependentUpon>
+    <Compile Include="frmSimulador.Designer.cs">
+      <DependentUpon>frmSimulador.cs</DependentUpon>
     </Compile>
     <Compile Include="GeradorPDF.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="LimitesConsorcio.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proposta.cs" />
     <Compile Include="ResultadoCalculo.cs" />
     <Compile Include="Usuario.cs" />
-    <EmbeddedResource Include="frmAgro.resx">
-      <DependentUpon>frmAgro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAutomovel.resx">
-      <DependentUpon>frmAutomovel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCapitaldeGiro.resx">
-      <DependentUpon>frmCapitaldeGiro.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="ValidacaoCampos.cs" />
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPersonalizado.resx">
-      <DependentUpon>frmPersonalizado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmImovel.resx">
-      <DependentUpon>frmImovel.cs</DependentUpon>
+    <EmbeddedResource Include="frmSimulador.resx">
+      <DependentUpon>frmSimulador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProposta.resx">
       <DependentUpon>frmProposta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmServico.resx">
-      <DependentUpon>frmServico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

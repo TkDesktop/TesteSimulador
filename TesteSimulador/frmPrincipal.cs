@@ -28,6 +28,13 @@ namespace TesteSimulador
             saudacao = ObterSaudacaoPorHorario();
             textoSaudacao = $"Seja bem vindo a Consultoria Benvenuto Vamos planejar a conquista do seu cliente?";
             tmrSaudacao.Start();
+
+            btnImovel.Tag = CategoriaConsorcio.Imovel;
+            btnAutomovel.Tag = CategoriaConsorcio.Veiculo;
+            btnAgro.Tag = CategoriaConsorcio.Agro;
+            btnCapital.Tag = CategoriaConsorcio.CapitalDeGiro;
+            btnServico.Tag = CategoriaConsorcio.Servicos;
+            btnPersonalizado.Tag = CategoriaConsorcio.Personalizado;
         }
 
         private void tmrSaudacao_Tick(object sender, EventArgs e)
@@ -167,32 +174,24 @@ namespace TesteSimulador
 
         private void btnImovel_Click(object sender, EventArgs e)
         {
-            AbrirForm(new frmImovel());
+     
+            
+            AbrirForm(new frmSimulador());
         }
 
-        private void btnAutomovel_Click(object sender, EventArgs e)
+        
+
+        private void AbrirSimulador(CategoriaConsorcio categoria)
         {
-            AbrirForm(new frmAutomovel());
+            AbrirForm(new frmSimulador(categoria));
         }
 
-        private void btnCapital_Click(object sender, EventArgs e)
+        private void Categoria_Click(object sender, EventArgs e)
         {
-            AbrirForm(new frmCapitaldeGiro());
-        }
+            Button botao = (Button)sender;
+            CategoriaConsorcio categoria = (CategoriaConsorcio)botao.Tag;
 
-        private void btnAgro_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new frmAgro());
-        }
-
-        private void btnServico_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new frmServico());
-        }
-
-        private void btnPersonalizado_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new frmPersonalizado());
+            AbrirSimulador(categoria);
         }
     }
 }

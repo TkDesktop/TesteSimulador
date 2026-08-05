@@ -114,7 +114,7 @@
             this.btnImovel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnImovel.UseVisualStyleBackColor = false;
             this.btnImovel.Visible = false;
-            this.btnImovel.Click += new System.EventHandler(this.btnImovel_Click);
+            this.btnImovel.Click += new System.EventHandler(this.Categoria_Click);
             // 
             // btnAgro
             // 
@@ -139,7 +139,7 @@
             this.btnAgro.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAgro.UseVisualStyleBackColor = false;
             this.btnAgro.Visible = false;
-            this.btnAgro.Click += new System.EventHandler(this.btnAgro_Click);
+            this.btnAgro.Click += new System.EventHandler(this.Categoria_Click);
             // 
             // btnAutomovel
             // 
@@ -164,7 +164,7 @@
             this.btnAutomovel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAutomovel.UseVisualStyleBackColor = false;
             this.btnAutomovel.Visible = false;
-            this.btnAutomovel.Click += new System.EventHandler(this.btnAutomovel_Click);
+            this.btnAutomovel.Click += new System.EventHandler(this.Categoria_Click);
             // 
             // btnPersonalizado
             // 
@@ -189,7 +189,7 @@
             this.btnPersonalizado.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnPersonalizado.UseVisualStyleBackColor = false;
             this.btnPersonalizado.Visible = false;
-            this.btnPersonalizado.Click += new System.EventHandler(this.btnPersonalizado_Click);
+            this.btnPersonalizado.Click += new System.EventHandler(this.Categoria_Click);
             // 
             // btnServico
             // 
@@ -214,7 +214,7 @@
             this.btnServico.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnServico.UseVisualStyleBackColor = false;
             this.btnServico.Visible = false;
-            this.btnServico.Click += new System.EventHandler(this.btnServico_Click);
+            this.btnServico.Click += new System.EventHandler(this.Categoria_Click);
             // 
             // btnCapital
             // 
@@ -239,7 +239,7 @@
             this.btnCapital.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnCapital.UseVisualStyleBackColor = false;
             this.btnCapital.Visible = false;
-            this.btnCapital.Click += new System.EventHandler(this.btnCapital_Click);
+            this.btnCapital.Click += new System.EventHandler(this.Categoria_Click);
             // 
             // LplBotoes
             // 
