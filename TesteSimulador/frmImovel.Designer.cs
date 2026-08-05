@@ -44,7 +44,6 @@
             this.txtAdesao = new ReaLTaiizor.Controls.MoonTextBox();
             this.txtAdministrativa = new ReaLTaiizor.Controls.MoonTextBox();
             this.txtPrazo = new ReaLTaiizor.Controls.MoonTextBox();
-            this.txtValorBem = new ReaLTaiizor.Controls.MoonTextBox();
             this.lblFundoReserva = new ReaLTaiizor.Controls.LabelEdit();
             this.rdbLanceLivre = new ReaLTaiizor.Controls.ForeverRadioButton();
             this.rdbLanceEmbutido = new ReaLTaiizor.Controls.ForeverRadioButton();
@@ -58,13 +57,14 @@
             this.btnCalcular = new ReaLTaiizor.Controls.HopeRoundButton();
             this.rdbMaisPorMenos = new ReaLTaiizor.Controls.AirRadioButton();
             this.rdbConvencional = new ReaLTaiizor.Controls.AirRadioButton();
+            this.txtValorBem = new ReaLTaiizor.Controls.MoonTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tmrFinal
             // 
-            this.tmrFinal.Interval = 450;
+            this.tmrFinal.Interval = 250;
             this.tmrFinal.Tick += new System.EventHandler(this.tmrFinal_Tick);
             // 
             // txtNomeCliente
@@ -251,19 +251,6 @@
             this.txtPrazo.Size = new System.Drawing.Size(167, 22);
             this.txtPrazo.TabIndex = 105;
             this.txtPrazo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtValorBem
-            // 
-            this.txtValorBem.BackColor = System.Drawing.Color.White;
-            this.txtValorBem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
-            this.txtValorBem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtValorBem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorBem.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.txtValorBem.Location = new System.Drawing.Point(204, 105);
-            this.txtValorBem.Name = "txtValorBem";
-            this.txtValorBem.Size = new System.Drawing.Size(167, 22);
-            this.txtValorBem.TabIndex = 103;
-            this.txtValorBem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblFundoReserva
             // 
@@ -469,6 +456,20 @@
             this.rdbConvencional.Text = "Convencional";
             this.rdbConvencional.Transparent = false;
             // 
+            // txtValorBem
+            // 
+            this.txtValorBem.BackColor = System.Drawing.Color.White;
+            this.txtValorBem.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(175)))), ((int)(((byte)(55)))));
+            this.txtValorBem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtValorBem.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorBem.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtValorBem.Location = new System.Drawing.Point(204, 105);
+            this.txtValorBem.Name = "txtValorBem";
+            this.txtValorBem.Size = new System.Drawing.Size(167, 22);
+            this.txtValorBem.TabIndex = 103;
+            this.txtValorBem.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtValorBem.TextChanged += new System.EventHandler(this.txtValorBem_TextChanged);
+            // 
             // frmImovel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,7 +536,6 @@
         private ReaLTaiizor.Controls.MoonTextBox txtAdesao;
         private ReaLTaiizor.Controls.MoonTextBox txtAdministrativa;
         private ReaLTaiizor.Controls.MoonTextBox txtPrazo;
-        private ReaLTaiizor.Controls.MoonTextBox txtValorBem;
         private ReaLTaiizor.Controls.LabelEdit lblFundoReserva;
         private ReaLTaiizor.Controls.ForeverRadioButton rdbLanceLivre;
         private ReaLTaiizor.Controls.ForeverRadioButton rdbLanceEmbutido;
@@ -549,5 +549,6 @@
         public ReaLTaiizor.Controls.HopeRoundButton btnCalcular;
         private ReaLTaiizor.Controls.AirRadioButton rdbMaisPorMenos;
         private ReaLTaiizor.Controls.AirRadioButton rdbConvencional;
+        private ReaLTaiizor.Controls.MoonTextBox txtValorBem;
     }
 }

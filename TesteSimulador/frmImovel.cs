@@ -210,6 +210,28 @@ namespace TesteSimulador
         {
             Close();
         }
+
+        private bool formatando = false;
+        private void txtValorBem_TextChanged(object sender, EventArgs e)
+        {
+            
+            
+            if (formatando) return;
+
+            formatando = true;
+
+            string numeros = new string(txtValorBem.Text.Where(char.IsDigit).ToArray());
+
+            if (string.IsNullOrEmpty(numeros))
+                numeros = "0";
+
+            decimal valor = decimal.Parse(numeros) / 100;
+
+            txtValorBem.Text = valor.ToString("N2");
+            txtValorBem.SelectionStart = txtValorBem.Text.Length;
+
+            formatando = false;
+        }
     }
     
 }
