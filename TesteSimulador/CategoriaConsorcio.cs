@@ -8,11 +8,11 @@ namespace TesteSimulador
 {
     public enum CategoriaConsorcio
     {
-        Imovel,
-        Automovel,
-        Agro,
-        CapitalDeGiro,
-        Servicos,
-        Personalizado
+        Imovel = 1,
+        Automovel = 2,
+        Agro = 3,
+        Capital = 4,
+        Servicos = 5,
+        Personalizado = 6
     }
 }

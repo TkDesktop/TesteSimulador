@@ -12,17 +12,59 @@ namespace TesteSimulador
 {
     public partial class frmSimulador : Form
     {
+        private ResultadoSimulacao resultado;
+        private ParametrosSimulacao parametros;
         private CategoriaConsorcio categoria;
+
+        int progresso = 0;
+        int contadorPontos = 0;
+        string mensagemBase = "Carregando Sistema";
+
+        private void DefinirCategoria(CategoriaConsorcio categoria)
+        {
+            this.categoria = categoria;
+
+            string nomeCategoria;
+
+            switch (categoria)
+            {
+                case CategoriaConsorcio.Imovel:
+                    nomeCategoria = "CONSÓRCIO IMOBILIÁRIO";
+                    break;
+
+                case CategoriaConsorcio.Automovel:
+                    nomeCategoria = "CONSÓRCIO DE AUTOMÓVEIS";
+                    break;
+
+                case CategoriaConsorcio.Agro:
+                    nomeCategoria = "CONSÓRCIO DE AGRO / PESADOS";
+                    break;
+
+                case CategoriaConsorcio.Capital:
+                    nomeCategoria = "CONSÓRCIO DE CAPITAL DE GIRO";
+                    break;
+
+                case CategoriaConsorcio.Servicos:
+                    nomeCategoria = "CONSÓRCIO DE SERVIÇOS";
+                    break;
+
+                case CategoriaConsorcio.Personalizado:
+                    nomeCategoria = "CONSÓRCIO PERSONALIZADO";
+                    break;
+
+                default:
+                    nomeCategoria = "CONSÓRCIO GERAL";
+                    break;
+            }
+
+            Text = $"CONSULTORIA BENVENUTO - {nomeCategoria}";
+        }
 
         public frmSimulador(CategoriaConsorcio categoria)
         {
             InitializeComponent();
 
-            this.categoria = categoria;
-
-            var dados = LimitesConsorcio.ObterDados(categoria);
-
-            Text = $"CONSULTORIA BENVENUTO - {dados.Nome.ToUpper()}";
+            
 
             txtPrazo.KeyPress += ValidacaoCampos.ApenasNumeros;
 
@@ -48,13 +90,6 @@ namespace TesteSimulador
 
         }
 
-        int progresso = 0;
-        int contadorPontos = 0;
-        string mensagemBase = "Carregando Sistema";
-
-        private ResultadoCalculo resultado;
-        private Proposta proposta;
-
         private void Limpar()
         {
             txtNomeCliente.Clear();
@@ -64,25 +99,14 @@ namespace TesteSimulador
             txtLance.Clear();
             txtReserva.Clear();
             txtAdesao.Clear();
-
-            rdbLanceEmbutido.Checked = false;
-            rdbLanceLivre.Checked = false;
+            cboLance.SelectedIndex = -1;
 
             cboAdministradora.SelectedIndex = -1;
 
             txtValorBem.Focus();
             btnCalcular.Enabled = true;
-            rdbConvencional.Checked = false;
-            rdbMaisPorMenos.Checked = false;
 
-        }
 
-        private void frmImovel_Load(object sender, EventArgs e)
-        {
-            cboAdministradora.SelectedIndex = -1;
-            txtValorBem.KeyPress += ValidacaoCampos.ApenasDecimal;
-            txtValorBem.Enter += ValidacaoCampos.RemoverMoeda;
-            txtValorBem.Leave += ValidacaoCampos.AdicionarMoeda;
         }
 
         private void tmrFinal_Tick(object sender, EventArgs e)
@@ -133,10 +157,20 @@ namespace TesteSimulador
         {
             string msgErro = string.Empty;
 
-            if (txtValorBem.Text == string.Empty )
+            if (txtValorBem.Text == string.Empty)
             {
                 msgErro += "Preencha o campo VALOR DO BEM!. \n";
             }
+            else
+            {
+                decimal.TryParse(txtValorBem.Text, out decimal valorBem);
+
+                if (!LimitesConsorcio.ValorDentroDoLimite(categoria, valorBem, out string msgLimite))
+                {
+                    msgErro += msgLimite + "\n";
+                }
+            }
+
             if (txtPrazo.Text == string.Empty)
             {
                 msgErro += "Preencha o campo PRAZO!. \n";
@@ -169,44 +203,65 @@ namespace TesteSimulador
             return msgErro;
         }
 
-        private Proposta PreencherClasse()
+        private ParametrosSimulacao PreencherParametros()
         {
-            Proposta p = new Proposta();
+            ParametrosSimulacao p = new ParametrosSimulacao();
 
-            p.NomeCliente = txtNomeCliente.Text;
+            // 1. Valores e Prazo
+            decimal.TryParse(txtValorBem.Text, out decimal valorBem);
+            p.ValorCarta = valorBem;
+
             int.TryParse(txtPrazo.Text, out int prazo);
             p.Prazo = prazo;
-            decimal.TryParse(txtValorBem.Text, out decimal valorBem);
-            p.ValorBem = valorBem;
+
+            // 2. Taxas
             decimal.TryParse(txtAdministrativa.Text, out decimal taxaAdmin);
-            p.TaxaAdmin = taxaAdmin;
-            decimal.TryParse(txtAdesao.Text, out decimal taxaAdesao);
-            p.TaxaAdesao = taxaAdesao;
+            p.TaxaAdministracao = taxaAdmin;
+
             decimal.TryParse(txtReserva.Text, out decimal taxaReserva);
-            p.TaxaReserva = taxaReserva;
-            decimal.TryParse(txtLance.Text, out decimal lance);
-            p.Lance = lance;
-            p.Administradora = cboAdministradora.SelectedItem.ToString();
+            p.FundoReserva = taxaReserva;
 
-            // Tipo de lance
-            if (rdbLanceLivre.Checked)
-                p.TipoLance = 1;
-            else if (rdbLanceEmbutido.Checked)
-                p.TipoLance = 2;
-            // Adesão
-            if (taxaAdesao > 0)
+            decimal.TryParse(txtAdesao.Text, out decimal taxaAdesao);
+            p.ValorAdesao = taxaAdesao;
+
+            // 3. Leitura da Opção do Lance via ComboBox
+            string opcaoLance = cboLance.SelectedItem != null
+                ? cboLance.SelectedItem.ToString()
+                : cboLance.Text;
+
+            if (opcaoLance.Contains("25%") || opcaoLance.Contains("Embutido"))
             {
-                if (rdbConvencional.Checked)
-                    p.QuantidadeParcelasAdesao = 2;
+                // Cenário 2: Lance Embutido (Fixado em 25%)
+                p.InformouLance = true;
+                p.LanceEmbutido = true;
+                p.PercentualLance = 25m;
+            }
+            else if (opcaoLance.Contains("Livre"))
+            {
+                // Cenário 3: Lance Livre (Lê o valor digitado na TextBox)
+                decimal.TryParse(txtLance.Text, out decimal percentualLance);
 
-                if (rdbMaisPorMenos.Checked)
-                    p.QuantidadeParcelasAdesao = 12;
+                p.InformouLance = percentualLance > 0;
+                p.LanceEmbutido = false;
+                p.PercentualLance = percentualLance;
             }
             else
             {
-                p.QuantidadeParcelasAdesao = 0;
+                // Cenário 1: Tradicional / Sem Lance
+                p.InformouLance = false;
+                p.LanceEmbutido = false;
+                p.PercentualLance = 0m;
             }
+
             return p;
+        }
+          
+        private void frmSimulador_Load(object sender, EventArgs e)
+        {
+            cboAdministradora.SelectedIndex = -1;
+            txtValorBem.KeyPress += ValidacaoCampos.ApenasDecimal;
+            txtValorBem.Enter += ValidacaoCampos.RemoverMoeda;
+            txtValorBem.Leave += ValidacaoCampos.AdicionarMoeda;
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
@@ -220,17 +275,9 @@ namespace TesteSimulador
                 return;
             }
 
-            proposta = PreencherClasse();
-            CalculadoraConsorcio calc = new CalculadoraConsorcio();
-            resultado = calc.Calcular(proposta);
-            progresso = 0;
-            contadorPontos = 0;
-
-            pbrFinal.Value = 0;
-            pbrFinal.Visible = true;
-            lblFinal.Visible = true;
-
-            btnCalcular.Enabled = false;
+            parametros = PreencherParametros();
+            ICalculadoraConsorcio calc = new CalculadoraConsorcioEmbracon();
+            resultado = calc.Calcular(parametros);
 
             tmrFinal.Start();
         }
@@ -244,7 +291,7 @@ namespace TesteSimulador
         {
             Close();
         }
-    
+
     }
     
 }

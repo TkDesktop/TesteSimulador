@@ -174,9 +174,7 @@ namespace TesteSimulador
 
         private void btnImovel_Click(object sender, EventArgs e)
         {
-     
-            
-            AbrirForm(new frmSimulador());
+            AbrirForm(new frmSimulador(CategoriaConsorcio.Imovel));
         }
 
         
