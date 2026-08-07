@@ -45,8 +45,13 @@ namespace TesteSimulador
                     resultado.CreditoRecebidoComLanceEmbutido = Arredondar(p.ValorCarta - resultado.ValorLance);
                 }
 
-                // 10) e 11) Simulações pós-lance
-                CalcularSimulacaoPosLance(p, resultado);
+                CalcularSimulacaoPosLance(p, resultado);  // <- esse método que você colou, SEM alterações
+
+                // ESSA PARTE AQUI é a que falta adicionar, LOGO DEPOIS da chamada acima:
+                if (p.LanceEmbutido && resultado.NovaParcelaComReducaoDeParcela.HasValue)
+                {
+                    resultado.ParcelaMensal = resultado.NovaParcelaComReducaoDeParcela.Value;
+                }
             }
 
             return resultado;
@@ -71,7 +76,7 @@ namespace TesteSimulador
         private decimal CalcularAdesaoMensal(ParametrosSimulacao p)
         {
             // Se não parcelar (0 ou 1 parcela), considera à vista => não entra na mensalidade
-            if (p.QuantidadeParcelasAdesao <= 1)
+            if (p.QuantidadeParcelasAdesao <= 0)
             {
                 return 0;
             }

@@ -7,20 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TesteSimulador
 {
     public partial class frmProposta : Form
     {
+        private Proposta proposta;
+        private ResultadoSimulacao resultado;
 
-        public frmProposta(Proposta p, ResultadoCalculo r)
+        public frmProposta(Proposta p, ResultadoSimulacao r)
         {
             InitializeComponent();
             proposta = p;
             resultado = r;
         }
-        private Proposta proposta;
-        private ResultadoCalculo resultado;
 
 
         private void frmProposta_Load(object sender, EventArgs e)
@@ -39,36 +40,39 @@ namespace TesteSimulador
         private void CarregarDados()
         {
             lblNomeCliente.Text = $"Cliente: {proposta.NomeCliente}";
-
             lblValorCarta.Text = $"Valor da Carta: {proposta.ValorBem:C2}";
-
             lblPrazo.Text = $"Prazo: {proposta.Prazo} meses";
-
             lblAdministradora.Text = $"Administradora: {proposta.Administradora}";
 
-
             // Valores totais da operação
-            lblTaxaAdmin.Text = $"Taxa Administrativa: {resultado.ValorTotalTaxaAdmin:C2}";
-            lblReserva.Text = $"Fundo Reserva: {resultado.ValorTotalFundoReserva:C2}";
-            lblPercentAdesao.Text = $"Adesão Total: {resultado.ValorTotalAdesao:C2}";
+            lblTaxaAdmin.Text = $"Taxa Administrativa: {resultado.TaxaAdministracaoTotal:C2}";
+            lblReserva.Text = $"Fundo Reserva: {resultado.FundoReservaTotal:C2}";
+            lblPercentAdesao.Text = $"Adesão Mensal: {resultado.AdesaoMensal:C2}";
+
             // Parcelas
-            lblParcela.Text = $"Parcela Normal: {resultado.ParcelaAntesContemplacao:C2}";
-            lblValorParcelaAdesao.Text = $"Parcela Adesão ({proposta.QuantidadeParcelasAdesao}x): {resultado.ValorParcelaAdesao + resultado.ParcelaAntesContemplacao:C2}";
+            lblParcela.Text = $"Parcela Normal: {resultado.ParcelaMensal:C2}";
+
+            decimal parcelaComAdesao = resultado.ParcelaMensal;
+            lblValorParcelaAdesao.Text = $"Parcela com Adesão ({proposta.QuantidadeParcelasAdesao}x): {parcelaComAdesao:C2}";
+
             // Lance
             lblTipoLance.Text = proposta.TipoLance == 1 ? "Tipo Lance: Livre" : "Tipo Lance: Embutido";
             lblPercentLance.Text = $"Percentual Lance: {resultado.PercentualLance:0.##}%";
-            // Pós contemplação
-            lblPosContemp.Text = $"Pós Contemplação: {resultado.ParcelaPosContemplacao:C2}";
-            // Total da operação
-            lblValorTotal.Text = $"Valor Total Operação: {resultado.ValorTotalOperacao:C2}";
 
-            if (proposta.TipoLance == 1 && resultado.ParcelasReduzidasLance > 0)
+            // Pós contemplação
+            decimal posContemplacao = resultado.NovaParcelaComReducaoDeParcela ?? resultado.ParcelaMensal;
+            lblPosContemp.Text = $"Pós Contemplação: {posContemplacao:C2}";
+
+            // Total da operação
+            lblValorTotal.Text = $"Valor Total Operação: {resultado.TotalPlano:C2}";
+
+            if (proposta.TipoLance == 1 && resultado.NovoPrazoComReducaoDePrazo.HasValue && resultado.NovoPrazoComReducaoDePrazo > 0)
             {
-                lblReducaoLance.Text = $"Lance reduziu {resultado.ParcelasReduzidasLance} parcelas.\n\nNovo prazo: {resultado.PrazoFinal} meses";
+                lblReducaoLance.Text = $"Novo prazo pós-lance: {resultado.NovoPrazoComReducaoDePrazo.Value} meses";
             }
             else
             {
-                lblReducaoLance.Text = "Lance aplicado no crédito.";
+                lblReducaoLance.Text = "Lance aplicado no crédito/parcela.";
             }
         }
 
@@ -82,7 +86,6 @@ namespace TesteSimulador
             try
             {
                 GeradorPDF gerador = new GeradorPDF();
-
                 string arquivoGerado = gerador.Gerar(proposta, resultado);
 
                 MessageBox.Show(
@@ -92,10 +95,10 @@ namespace TesteSimulador
                     MessageBoxIcon.Information
                 );
 
-                // abre a pasta do PDF
+                // Abre a pasta contendo o arquivo PDF gerado
                 System.Diagnostics.Process.Start(
                     "explorer.exe",
-                    System.IO.Path.GetDirectoryName(arquivoGerado)
+                    Path.GetDirectoryName(arquivoGerado)
                 );
             }
             catch (Exception ex)

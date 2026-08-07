@@ -33,7 +33,10 @@ namespace TesteSimulador
 
             if (ValidarAutenticacao(user, pass))
             {
-                MessageBox.Show($"Seja Bem Vindo, {user}","CONSULTORIA BENVENUTO", 
+                Usuario.logado = true;
+                Usuario.login = user;
+
+                MessageBox.Show($"Seja Bem Vindo, {user}", "CONSULTORIA BENVENUTO",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();

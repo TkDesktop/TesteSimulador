@@ -11,9 +11,5 @@ namespace TesteSimulador
         public static bool logado { get; set; } = false;
         public static string login { get; set; } = string.Empty;
 
-      
-
-
-      
     }
 }

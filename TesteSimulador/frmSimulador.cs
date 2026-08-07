@@ -15,6 +15,7 @@ namespace TesteSimulador
         private ResultadoSimulacao resultado;
         private ParametrosSimulacao parametros;
         private CategoriaConsorcio categoria;
+        private Proposta proposta;
 
         int progresso = 0;
         int contadorPontos = 0;
@@ -111,7 +112,12 @@ namespace TesteSimulador
 
         private void tmrFinal_Tick(object sender, EventArgs e)
         {
+            lblFinal.Visible = true;
+            pbrFinal.Visible = true;
+            
+            
             progresso += 2;
+
 
             if (progresso <= 100)
             {
@@ -161,15 +167,6 @@ namespace TesteSimulador
             {
                 msgErro += "Preencha o campo VALOR DO BEM!. \n";
             }
-            else
-            {
-                decimal.TryParse(txtValorBem.Text, out decimal valorBem);
-
-                if (!LimitesConsorcio.ValorDentroDoLimite(categoria, valorBem, out string msgLimite))
-                {
-                    msgErro += msgLimite + "\n";
-                }
-            }
 
             if (txtPrazo.Text == string.Empty)
             {
@@ -195,7 +192,7 @@ namespace TesteSimulador
             {
                 msgErro += "Escolha uma ADMINISTRADORA!. \n";
             }
-            if (rdbLanceEmbutido.Checked == false && rdbLanceLivre.Checked == false)
+            if (cboLance.SelectedIndex == -1)
             {
                 msgErro += "Selecione o tipo de LANCE!. \n";
             }
@@ -207,47 +204,59 @@ namespace TesteSimulador
         {
             ParametrosSimulacao p = new ParametrosSimulacao();
 
-            // 1. Valores e Prazo
-            decimal.TryParse(txtValorBem.Text, out decimal valorBem);
-            p.ValorCarta = valorBem;
+            p.TaxaAdministracao = ConverterDecimal(txtAdministrativa.Text);
+            p.FundoReserva = ConverterDecimal(txtReserva.Text);
+            p.ValorAdesao = ConverterDecimal(txtAdesao.Text);
+            p.QuantidadeParcelasAdesao = 2;
 
-            int.TryParse(txtPrazo.Text, out int prazo);
-            p.Prazo = prazo;
+            // Funções auxiliares para limpar R$, % e pontuações de moeda
+            decimal ConverterDecimal(string texto)
+            {
+                if (string.IsNullOrWhiteSpace(texto)) return 0m;
+
+                // Remove 'R$', '%', espaços e pontos de milhar, mantendo vírgula decimal
+                string limpo = texto.Replace("R$", "")
+                                    .Replace("%", "")
+                                    .Replace(".", "")
+                                    .Trim();
+
+                decimal.TryParse(limpo, out decimal valor);
+                return valor;
+            }
+
+            int ConverterInt(string texto)
+            {
+                int.TryParse(texto.Trim(), out int valor);
+                return valor;
+            }
+
+            // 1. Valores e Prazo
+            p.ValorCarta = ConverterDecimal(txtValorBem.Text);
+            p.Prazo = ConverterInt(txtPrazo.Text);
 
             // 2. Taxas
-            decimal.TryParse(txtAdministrativa.Text, out decimal taxaAdmin);
-            p.TaxaAdministracao = taxaAdmin;
+            p.TaxaAdministracao = ConverterDecimal(txtAdministrativa.Text);
+            p.FundoReserva = ConverterDecimal(txtReserva.Text);
+            p.ValorAdesao = ConverterDecimal(txtAdesao.Text);
 
-            decimal.TryParse(txtReserva.Text, out decimal taxaReserva);
-            p.FundoReserva = taxaReserva;
+            // 3. Opção de Lance
+            string opcaoLance = (cboLance.SelectedItem?.ToString() ?? string.Empty).Trim();
+            decimal percentualLance = ConverterDecimal(txtLance.Text);
 
-            decimal.TryParse(txtAdesao.Text, out decimal taxaAdesao);
-            p.ValorAdesao = taxaAdesao;
-
-            // 3. Leitura da Opção do Lance via ComboBox
-            string opcaoLance = cboLance.SelectedItem != null
-                ? cboLance.SelectedItem.ToString()
-                : cboLance.Text;
-
-            if (opcaoLance.Contains("25%") || opcaoLance.Contains("Embutido"))
+            if (string.Equals(opcaoLance, "LANCE EMBUTIDO", StringComparison.OrdinalIgnoreCase))
             {
-                // Cenário 2: Lance Embutido (Fixado em 25%)
-                p.InformouLance = true;
+                p.InformouLance = percentualLance > 0;
                 p.LanceEmbutido = true;
-                p.PercentualLance = 25m;
+                p.PercentualLance = percentualLance;
             }
-            else if (opcaoLance.Contains("Livre"))
+            else if (string.Equals(opcaoLance, "LANCE LIVRE", StringComparison.OrdinalIgnoreCase))
             {
-                // Cenário 3: Lance Livre (Lê o valor digitado na TextBox)
-                decimal.TryParse(txtLance.Text, out decimal percentualLance);
-
                 p.InformouLance = percentualLance > 0;
                 p.LanceEmbutido = false;
                 p.PercentualLance = percentualLance;
             }
             else
             {
-                // Cenário 1: Tradicional / Sem Lance
                 p.InformouLance = false;
                 p.LanceEmbutido = false;
                 p.PercentualLance = 0m;
@@ -278,6 +287,16 @@ namespace TesteSimulador
             parametros = PreencherParametros();
             ICalculadoraConsorcio calc = new CalculadoraConsorcioEmbracon();
             resultado = calc.Calcular(parametros);
+
+            proposta = new Proposta
+            {
+                NomeCliente = string.IsNullOrWhiteSpace(txtNomeCliente.Text) ? "Cliente" : txtNomeCliente.Text,
+                Administradora = cboAdministradora.SelectedItem?.ToString() ?? "Embracon",
+                ValorBem = parametros.ValorCarta,
+                Prazo = parametros.Prazo,
+                QuantidadeParcelasAdesao = 2, // Ajuste se houver campo de parcelamento de adesão
+                TipoLance = parametros.LanceEmbutido ? 2 : 1
+            };
 
             tmrFinal.Start();
         }

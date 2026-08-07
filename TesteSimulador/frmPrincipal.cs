@@ -30,9 +30,9 @@ namespace TesteSimulador
             tmrSaudacao.Start();
 
             btnImovel.Tag = CategoriaConsorcio.Imovel;
-            btnAutomovel.Tag = CategoriaConsorcio.Veiculo;
+            btnAutomovel.Tag = CategoriaConsorcio.Automovel;
             btnAgro.Tag = CategoriaConsorcio.Agro;
-            btnCapital.Tag = CategoriaConsorcio.CapitalDeGiro;
+            btnCapital.Tag = CategoriaConsorcio.Capital;
             btnServico.Tag = CategoriaConsorcio.Servicos;
             btnPersonalizado.Tag = CategoriaConsorcio.Personalizado;
         }
